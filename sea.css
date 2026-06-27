@@ -1,0 +1,10 @@
+/* Ferry — shared animated sea background (persists across all pages) */
+.seascape{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none}
+#cursorLight{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:0;transition:opacity .35s ease;
+  mix-blend-mode:screen;
+  background:radial-gradient(circle 100px at var(--mx,-200px) var(--my,-200px),
+    rgba(245,228,180,.22),rgba(240,210,150,.08) 45%,rgba(240,210,150,0) 72%)}
+#stormFlash{position:fixed;inset:0;z-index:61;pointer-events:none;opacity:0;
+  mix-blend-mode:screen;background:rgba(150,185,210,.85)}
+/* content floats above the sea */
+.wrap,.card,main,header,footer,section{position:relative;z-index:1}
