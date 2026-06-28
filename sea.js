@@ -14,7 +14,7 @@
     sky0: '#061d23', sky1: '#0a2c33', beacon: '#f0a73a', foam: '#a7cdc8',
     ok: '#86d6ab', cream: '#f2ecdd', land: '#09232a'
   };
-  var WSTOPS = [[0, '#11414a'], [480, '#0b2f37'], [1100, '#072028'], [1900, '#03141a'], [3000, '#010a0e'], [4200, '#01070a']];
+  var WSTOPS = [[0, '#0c3038'], [700, '#0b2a31'], [1600, '#09242b'], [3000, '#081f26'], [4500, '#071b22']];
   function hx(c) { return [parseInt(c.slice(1, 3), 16), parseInt(c.slice(3, 5), 16), parseInt(c.slice(5, 7), 16)]; }
   function lerp(a, b, t) { return a + (b - a) * t; }
   function mix(c1, c2, t) { var a = hx(c1), b = hx(c2); return 'rgb(' + (lerp(a[0], b[0], t) | 0) + ',' + (lerp(a[1], b[1], t) | 0) + ',' + (lerp(a[2], b[2], t) | 0) + ')'; }
@@ -199,10 +199,10 @@
     ctx.fillStyle = '#123e45'; ctx.fillRect(-32, -26, 7, 12);
     ctx.fillStyle = C.beacon; ctx.beginPath(); ctx.arc(28, -19, 2.4, 0, 6.2832); ctx.fill(); ctx.restore();
   }
-  function drawSeafloor(off) { ctx.save(); ctx.beginPath(); ctx.moveTo(floorPts[0].x, floorPts[0].y - off); for (var i = 1; i < floorPts.length; i++) ctx.lineTo(floorPts[i].x, floorPts[i].y - off); ctx.lineTo(W, H + 40); ctx.lineTo(0, H + 40); ctx.closePath(); var g = ctx.createLinearGradient(0, floorY - 60 - off, 0, floorY - off); g.addColorStop(0, '#06141a'); g.addColorStop(1, '#020a0e'); ctx.fillStyle = g; ctx.fill(); ctx.restore(); }
+  function drawSeafloor(off) { ctx.save(); ctx.beginPath(); ctx.moveTo(floorPts[0].x, floorPts[0].y - off); for (var i = 1; i < floorPts.length; i++) ctx.lineTo(floorPts[i].x, floorPts[i].y - off); ctx.lineTo(W, H + 40); ctx.lineTo(0, H + 40); ctx.closePath(); var g = ctx.createLinearGradient(0, floorY - 60 - off, 0, floorY - off); g.addColorStop(0, '#082029'); g.addColorStop(1, '#06161d'); ctx.fillStyle = g; ctx.fill(); ctx.restore(); }
   function drawClouds(off) {
     for (var i = 0; i < clouds.length; i++) {
-      var c = clouds[i]; c.x += c.sp * 0.016; if (c.x > W + 160) c.x = -160; var y = c.y - off * 0.35;
+      var c = clouds[i]; c.x += c.sp * 0.016; if (c.x > W + 160) c.x = -160; var y = c.y - off;
       ctx.save(); ctx.globalAlpha = 0.85;
       for (var b = 0; b < 5; b++) {
         var bx = c.x + (b - 2) * 40 * c.s, by = y + Math.sin(b * 1.3) * 10, br = (34 + (b % 2) * 18) * c.s;
@@ -275,7 +275,7 @@
     for (i = 0; i < creatures.length; i++) { var o = creatures[i], sy = o.y - off; if (sy < -180 || sy > H + 180) { if (o.k === 'snow') { o.y -= 4 * dt; if (o.y < surfaceY + 600) o.y = floorY; } continue; } drawCreature(o, sy, dt); }
     ctx.restore();
 
-    var murk = clamp((off - surfaceY) / 2600, 0, 0.55); if (murk > 0.01) { ctx.fillStyle = 'rgba(2,8,11,' + murk + ')'; ctx.fillRect(0, 0, W, H); }
+    var murk = clamp((off - surfaceY) / 5000, 0, 0.07); if (murk > 0.01) { ctx.fillStyle = 'rgba(2,8,11,' + murk + ')'; ctx.fillRect(0, 0, W, H); }
 
     for (i = splashes.length - 1; i >= 0; i--) { var s2 = splashes[i]; s2.r += 20 * dt; s2.a -= 0.9 * dt; if (s2.a <= 0) { splashes.splice(i, 1); continue; } ctx.strokeStyle = 'rgba(190,214,222,' + s2.a + ')'; ctx.lineWidth = 1; ctx.beginPath(); ctx.ellipse(s2.x, surfacePageY(s2.x) - off, s2.r, s2.r * 0.28, 0, 0, 6.2832); ctx.stroke(); }
     if (surfScreen > -220 && surfScreen < H + 260) { drawFerry(off); drawIslandTop(off); drawLighthouse(off); }
