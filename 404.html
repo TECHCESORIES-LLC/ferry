@@ -155,7 +155,9 @@
   summary::before{content:"⚓ ";color:var(--beacon)}
   details p{color:#bfd6d2;font-size:14px;margin:10px 0 0}
 
-  footer{padding:34px 0 50px;color:var(--foam-dim);font-size:13px}
+  footer{padding:34px 0 50px;color:#a7cdc8;font-size:13px}
+  footer.band{background:rgba(8,26,32,.96)}
+  footer a{color:#cfe2de}
   footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center}
   footer a{color:var(--foam)}
   footer .brand{font-size:18px;color:#e9f1ef}
@@ -351,7 +353,7 @@ def fib(n):
     sky0: '#061d23', sky1: '#0a2c33', beacon: '#f0a73a', foam: '#a7cdc8',
     ok: '#86d6ab', cream: '#f2ecdd', land: '#09232a'
   };
-  var WSTOPS = [[0, '#0c3038'], [700, '#0b2a31'], [1600, '#09242b'], [3000, '#081f26'], [4500, '#071b22']];
+  var WSTOPS = [[0, '#11414a'], [480, '#0b2f37'], [1100, '#072028'], [1900, '#03141a'], [3000, '#010a0e'], [4200, '#01070a']];
   function hx(c) { return [parseInt(c.slice(1, 3), 16), parseInt(c.slice(3, 5), 16), parseInt(c.slice(5, 7), 16)]; }
   function lerp(a, b, t) { return a + (b - a) * t; }
   function mix(c1, c2, t) { var a = hx(c1), b = hx(c2); return 'rgb(' + (lerp(a[0], b[0], t) | 0) + ',' + (lerp(a[1], b[1], t) | 0) + ',' + (lerp(a[2], b[2], t) | 0) + ')'; }
@@ -414,9 +416,9 @@ def fib(n):
   function stepField() { var k = 0.014, damp = 0.97, spread = 0.10, i; for (i = 0; i < N; i++) { vf[i] += -k * hf[i]; vf[i] *= damp; } for (i = 0; i < N; i++) { var l = i > 0 ? hf[i - 1] : hf[i], r = i < N - 1 ? hf[i + 1] : hf[i]; vf[i] += spread * ((l + r) * 0.5 - hf[i]); } for (i = 0; i < N; i++) hf[i] += vf[i]; }
   function surfacePageY(x) { var swell = Math.sin(x * 0.006 + t * 0.28) * 0.5 + Math.sin(x * 0.013 - t * 0.4) * 0.28; var fx = x / (W / (N - 1)), i = Math.floor(fx); if (i < 0) i = 0; if (i > N - 2) i = N - 2; var f = fx - i, disp = hf[i] * (1 - f) + hf[i + 1] * f; return surfaceY + swell + disp; }
 
-  function initRain() { drops.length = 0; var n = reduce ? 0 : Math.min(mobile ? 90 : 360, Math.floor(W / (mobile ? 8 : 3.1))); for (var i = 0; i < n; i++) drops.push(mkDrop(true)); }
+  function initRain() { drops.length = 0; var n = reduce ? 0 : Math.min(mobile ? 110 : 480, Math.floor(W / (mobile ? 7 : 2.5))); for (var i = 0; i < n; i++) drops.push(mkDrop(true)); }
   function mkDrop(any) { var z = Math.random(); return { x: rand(-60, W), y: any ? rand(-H, surfaceY) : rand(-90, -10), z: z, sp: 9 + z * 12 }; }
-  function initClouds() { clouds.length = 0; var n = reduce ? 3 : 6; for (var i = 0; i < n; i++) clouds.push({ x: rand(0, W), y: rand(18, surfaceY * 0.4), s: rand(1.1, 2.0), sp: rand(5, 13) }); }
+  function initClouds() { clouds.length = 0; var n = reduce ? 4 : 12; for (var i = 0; i < n; i++) clouds.push({ x: rand(0, W), y: rand(10, surfaceY * 0.5), s: rand(1.2, 2.6), sp: rand(5, 14) }); }
   function initStars() { stars.length = 0; for (var i = 0; i < 16; i++) stars.push({ x: rand(0, W), y: rand(0, surfaceY * 0.42), r: rand(0.5, 1.3), p: rand(0, 6.28) }); }
   function initFog() { fog.length = 0; if (reduce) return; var sN = mobile ? 3 : 5; for (var i = 0; i < sN; i++) fog.push({ y: surfaceY + 16 + i * 36 + rand(-12, 12), ph: rand(0, 6.28), a: rand(0.05, 0.11), deep: false }); }
 
@@ -496,7 +498,7 @@ def fib(n):
   }
 
   function drawLandmass(off) {
-    var oy = off * 0.12;
+    var oy = off;
     ctx.save(); ctx.beginPath(); ctx.moveTo(landmass[0].x, landmass[0].y - oy); for (var i = 1; i < landmass.length; i++) ctx.lineTo(landmass[i].x, landmass[i].y - oy); ctx.lineTo(W, surfaceY - oy + 4); ctx.lineTo(0, surfaceY - oy + 4); ctx.closePath();
     ctx.fillStyle = C.land; ctx.globalAlpha = 0.92; ctx.fill();
     ctx.clip(); ctx.globalCompositeOperation = 'lighter';
@@ -536,14 +538,14 @@ def fib(n):
     ctx.fillStyle = '#123e45'; ctx.fillRect(-32, -26, 7, 12);
     ctx.fillStyle = C.beacon; ctx.beginPath(); ctx.arc(28, -19, 2.4, 0, 6.2832); ctx.fill(); ctx.restore();
   }
-  function drawSeafloor(off) { ctx.save(); ctx.beginPath(); ctx.moveTo(floorPts[0].x, floorPts[0].y - off); for (var i = 1; i < floorPts.length; i++) ctx.lineTo(floorPts[i].x, floorPts[i].y - off); ctx.lineTo(W, H + 40); ctx.lineTo(0, H + 40); ctx.closePath(); var g = ctx.createLinearGradient(0, floorY - 60 - off, 0, floorY - off); g.addColorStop(0, '#082029'); g.addColorStop(1, '#06161d'); ctx.fillStyle = g; ctx.fill(); ctx.restore(); }
+  function drawSeafloor(off) { ctx.save(); ctx.beginPath(); ctx.moveTo(floorPts[0].x, floorPts[0].y - off); for (var i = 1; i < floorPts.length; i++) ctx.lineTo(floorPts[i].x, floorPts[i].y - off); ctx.lineTo(W, H + 40); ctx.lineTo(0, H + 40); ctx.closePath(); var g = ctx.createLinearGradient(0, floorY - 60 - off, 0, floorY - off); g.addColorStop(0, '#06141a'); g.addColorStop(1, '#020a0e'); ctx.fillStyle = g; ctx.fill(); ctx.restore(); }
   function drawClouds(off) {
     for (var i = 0; i < clouds.length; i++) {
       var c = clouds[i]; c.x += c.sp * 0.016; if (c.x > W + 160) c.x = -160; var y = c.y - off;
       ctx.save(); ctx.globalAlpha = 0.85;
       for (var b = 0; b < 5; b++) {
         var bx = c.x + (b - 2) * 40 * c.s, by = y + Math.sin(b * 1.3) * 10, br = (34 + (b % 2) * 18) * c.s;
-        var top = flash > 0.3 ? '#5a6e76' : '#36474f', bot = flash > 0.3 ? '#3f5258' : '#26343b';
+        var top = flash > 0.3 ? '#6b7e86' : '#4c5f67', bot = flash > 0.3 ? '#48595f' : '#36484f';
         var g = ctx.createRadialGradient(bx, by - br * 0.3, 0, bx, by, br); g.addColorStop(0, top); g.addColorStop(0.6, bot); g.addColorStop(1, 'rgba(30,44,50,0)');
         ctx.fillStyle = g; ctx.beginPath(); ctx.arc(bx, by, br, 0, 6.2832); ctx.fill();
       }
@@ -568,7 +570,7 @@ def fib(n):
     var dt = Math.min(0.05, (now - last) / 1000); last = now; t += dt;
     var off = scroll, surfScreen = surfaceY - off, i, x;
 
-    if (!reduce && !mobile) { nextBolt -= dt; if (nextBolt <= 0) { fireBolt(); nextBolt = rand(7, 16); } }
+    if (!reduce && !mobile) { nextBolt -= dt; if (nextBolt <= 0) { fireBolt(); nextBolt = rand(4, 11); } }
     if (flash > 0) flash = Math.max(0, flash - dt * 2.6);
     if (stormFlash) stormFlash.style.opacity = (flash * 0.22).toFixed(3);
 
@@ -612,7 +614,7 @@ def fib(n):
     for (i = 0; i < creatures.length; i++) { var o = creatures[i], sy = o.y - off; if (sy < -180 || sy > H + 180) { if (o.k === 'snow') { o.y -= 4 * dt; if (o.y < surfaceY + 600) o.y = floorY; } continue; } drawCreature(o, sy, dt); }
     ctx.restore();
 
-    var murk = clamp((off - surfaceY) / 5000, 0, 0.07); if (murk > 0.01) { ctx.fillStyle = 'rgba(2,8,11,' + murk + ')'; ctx.fillRect(0, 0, W, H); }
+    var murk = clamp((off - surfaceY) / 2600, 0, 0.55); if (murk > 0.01) { ctx.fillStyle = 'rgba(2,8,11,' + murk + ')'; ctx.fillRect(0, 0, W, H); }
 
     for (i = splashes.length - 1; i >= 0; i--) { var s2 = splashes[i]; s2.r += 20 * dt; s2.a -= 0.9 * dt; if (s2.a <= 0) { splashes.splice(i, 1); continue; } ctx.strokeStyle = 'rgba(190,214,222,' + s2.a + ')'; ctx.lineWidth = 1; ctx.beginPath(); ctx.ellipse(s2.x, surfacePageY(s2.x) - off, s2.r, s2.r * 0.28, 0, 0, 6.2832); ctx.stroke(); }
     if (surfScreen > -220 && surfScreen < H + 260) { drawFerry(off); drawIslandTop(off); drawLighthouse(off); }

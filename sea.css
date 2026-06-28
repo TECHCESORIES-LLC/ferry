@@ -12,3 +12,7 @@
 /* mobile / touch */
 html,body{overflow-x:hidden;max-width:100%}
 @media (pointer:coarse){#cursorLight,#stormFlash{display:none!important}}
+
+/* muted/dim layer over the sea on subpages (matches the homepage hero-scrim feel) */
+#seaDim{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(6,24,30,.7) 0%,rgba(6,24,30,.54) 55%,rgba(6,24,30,.5) 100%)}
