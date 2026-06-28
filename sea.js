@@ -26,7 +26,7 @@
   var lx = 0, peakY = 0;
   var N = 0, hf = null, vf = null;
   var drops = [], splashes = [], creatures = [], clouds = [], stars = [], bolts = [], fog = [];
-  var island = [], wall = [], landmass = [], floorPts = [], rocks = [];
+  var island = [], landmass = [], floorPts = [];
   var mx = -9999, my = -9999, mActive = false, flash = 0, nextBolt = 3;
 
   function depthAt(y) { return y - surfaceY; }
@@ -56,13 +56,6 @@
     var steps = 10;
     for (var i = 0; i <= steps; i++) { var tt = i / steps, x = lx - halfW + tt * halfW * 2; var rise = Math.pow(Math.sin(tt * Math.PI), 0.8) * (surfaceY - peakY); var jag = (Math.random() - 0.5) * 16 * Math.sin(tt * Math.PI); island.push({ x: x, y: surfaceY + 6 - rise + jag }); }
     island.push({ x: lx + halfW, y: surfaceY + 6 });
-    // small foreground rocks to nestle the tower base
-    rocks = [{ x: lx - halfW * 0.5, y: peakY + 30, r: 26 }, { x: lx + halfW * 0.55, y: peakY + 26, r: 30 }, { x: lx - halfW * 0.15, y: peakY + 40, r: 20 }];
-    // underwater rock pillar beneath, tapering into murk
-    wall = [{ x: lx - halfW, y: surfaceY }, { x: lx + halfW, y: surfaceY }];
-    var wd = 1500;
-    for (var j = 1; j <= 6; j++) { var d = j / 6, tap = halfW * (1 - d * 0.7); wall.push({ x: lx + tap + Math.sin(j) * 12, y: surfaceY + d * wd }); }
-    for (var k = 6; k >= 1; k--) { var d2 = k / 6, tap2 = halfW * (1 - d2 * 0.7); wall.push({ x: lx - tap2 - Math.cos(k) * 12, y: surfaceY + d2 * wd }); }
     // distant shore on the horizon (low, anchored to the waterline)
     landmass = []; var segs = 16;
     for (var m = 0; m <= segs; m++) { var mxp = (m / segs) * W; var hh = 14 + Math.sin(m * 0.6) * 10 + Math.sin(m * 1.7) * 6 + (m > segs * 0.6 ? 10 : 0); landmass.push({ x: mxp, y: surfaceY - hh }); }
@@ -167,13 +160,11 @@
     if (flash > 0.01) { ctx.fillStyle = 'rgba(150,190,210,' + flash * 0.35 + ')'; ctx.fillRect(0, 0, W, H); }
     ctx.restore(); ctx.globalAlpha = 1;
   }
-  function drawIslandRock(off) { ctx.save(); ctx.beginPath(); var w0 = wall[0]; ctx.moveTo(w0.x, w0.y - off); for (var i = 1; i < wall.length; i++) ctx.lineTo(wall[i].x, wall[i].y - off); ctx.closePath(); ctx.fillStyle = '#06181d'; ctx.globalAlpha = 0.92; ctx.fill(); ctx.restore(); ctx.globalAlpha = 1; }
   function drawIslandTop(off) {
     ctx.save(); ctx.beginPath(); ctx.moveTo(island[0].x, island[0].y - off); for (var i = 1; i < island.length; i++) ctx.lineTo(island[i].x, island[i].y - off); ctx.closePath();
     var g = ctx.createLinearGradient(0, peakY - off, 0, surfaceY - off + 10); g.addColorStop(0, '#16323a'); g.addColorStop(1, '#0a2228'); ctx.fillStyle = g; ctx.fill();
     ctx.clip(); ctx.globalCompositeOperation = 'lighter'; var lg = ctx.createRadialGradient(lx, peakY - off, 0, lx, peakY - off, 170); lg.addColorStop(0, 'rgba(240,167,58,' + (0.16 + flash * 0.5) + ')'); lg.addColorStop(1, 'rgba(240,167,58,0)'); ctx.fillStyle = lg; ctx.fillRect(0, 0, W, H); if (flash > 0.01) { ctx.fillStyle = 'rgba(150,190,210,' + flash * 0.35 + ')'; ctx.fillRect(0, 0, W, H); } ctx.restore(); ctx.globalAlpha = 1;
   }
-  function drawBaseRocks(off) { for (var i = 0; i < rocks.length; i++) { var r = rocks[i], y = r.y - off; ctx.save(); ctx.beginPath(); ctx.moveTo(r.x - r.r, y + r.r * 0.5); ctx.quadraticCurveTo(r.x - r.r * 0.6, y - r.r * 0.7, r.x, y - r.r * 0.5); ctx.quadraticCurveTo(r.x + r.r * 0.7, y - r.r * 0.6, r.x + r.r, y + r.r * 0.5); ctx.closePath(); var g = ctx.createLinearGradient(0, y - r.r, 0, y + r.r); g.addColorStop(0, '#143038'); g.addColorStop(1, '#081e24'); ctx.fillStyle = g; ctx.fill(); ctx.restore(); } }
   function drawLighthouse(off) {
     var baseY = peakY - off + 12, topY = baseY - 100, botY = baseY;   // base embedded into the rock
     var topW = 14, botW = 24;
@@ -245,7 +236,8 @@
 
   var last = performance.now(), lastDraw = 0;
   function frame(now) {
-    if (mobile && now - lastDraw < 33) { requestAnimationFrame(frame); return; }
+    if (document.hidden) { requestAnimationFrame(frame); return; }
+    if (now - lastDraw < (mobile ? 33 : 15)) { requestAnimationFrame(frame); return; }
     lastDraw = now;
     var dt = Math.min(0.05, (now - last) / 1000); last = now; t += dt;
     var off = scroll, surfScreen = surfaceY - off, i, x;
@@ -276,8 +268,10 @@
       }
     }
 
-    if (mActive && Math.abs((my + off) - surfacePageY(mx)) < 36) vf[idxAt(mx)] -= 0.18;
-    stepField();
+    if (surfScreen > -(H + 100)) {
+      if (mActive && Math.abs((my + off) - surfacePageY(mx)) < 36) vf[idxAt(mx)] -= 0.18;
+      stepField();
+    }
 
     // (underwater rock pillar removed - showed as a dark column below the waterline)
 
