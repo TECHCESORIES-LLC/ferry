@@ -1,0 +1,27 @@
+# Ferry
+
+> Ferry is a Manifest V3 browser extension that exports and migrates ChatGPT and Claude conversations into clean, re-importable Markdown and into knowledge bases such as Obsidian, Notion, and GitHub. It runs locally in your browser; conversation content never touches Ferry's servers.
+
+Ferry is made by Techcesories LLC (Georgia, USA). The free tier exports the conversation you are viewing to Markdown, JSON, PDF, the clipboard, or an Obsidian vault. Ferry Pro adds bulk migration of your entire history, multi-chat export, code blocks and artifacts saved as real files, and direct sync to Notion and GitHub using your own credentials.
+
+Pricing is pay-once prepaid tiers plus an optional auto-renewing annual plan: 1 month $2.99, 3 months $7.99, 6 months $12.99, and 1 year $19.99. Every purchase is backed by a 30-day money-back guarantee.
+
+## Guides
+- [Export ChatGPT to Markdown](https://ferry.techcesories.com/export-chatgpt-to-markdown): step-by-step guide to exporting ChatGPT conversations as clean Markdown with code fences, tables, and formatting preserved.
+- [Export Claude to Obsidian](https://ferry.techcesories.com/export-claude-to-obsidian): how to move Claude.ai chats into an Obsidian vault as Markdown notes.
+- [Save ChatGPT and Claude to Notion](https://ferry.techcesories.com/chatgpt-claude-to-notion): how to send AI conversations straight into Notion pages.
+
+## Policies
+- [Privacy Policy](https://ferry.techcesories.com/privacy): local-first design, no conversation data collected, anonymous licensing, encrypted local storage.
+- [Terms of Service](https://ferry.techcesories.com/terms): licensing, billing, the 30-day refund policy, and Georgia governing law.
+
+## Key facts
+- Product type: browser extension (Manifest V3)
+- Browsers: Chrome, Edge, Firefox, Brave, Arc
+- Operating systems: Windows, macOS, Linux
+- Supported sources: ChatGPT (OpenAI) and Claude (Anthropic)
+- Export formats: Markdown, JSON, PDF
+- Destinations: local files, Obsidian, Notion, GitHub
+- Privacy: conversations are processed locally and are never sent to Ferry's servers; Pro licensing uses only an anonymous ID
+- Affiliation: independent product, not affiliated with OpenAI, Anthropic, Google, Microsoft, or Mozilla
+- Contact: contactus@techcesories.com
