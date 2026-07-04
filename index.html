@@ -82,6 +82,12 @@
   .btn-ghost{display:inline-flex;align-items:center;gap:8px;color:#e9f1ef;border:1px solid var(--chart);
     padding:13px 20px;border-radius:11px;font-weight:600;font-size:15px;background:rgba(10,32,38,.92)}
   .btn-ghost:hover{border-color:var(--beacon)}
+  .notify{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;width:100%;max-width:520px;margin:0 auto}
+  .notify input{flex:1;min-width:220px;padding:14px 18px;border-radius:12px;border:1px solid var(--chart);background:rgba(7,28,34,.85);color:#eaf2f0;font-size:15px;font-family:var(--ui)}
+  .notify input:focus{outline:none;border-color:var(--beacon)}
+  .coming{margin-top:12px;text-align:center;font-family:var(--mono);font-size:12.5px;color:var(--foam)}
+  .coming a{color:var(--beacon)}
+  .guarantee{margin:10px 0 0;text-align:center;font-size:12.5px;color:var(--foam);font-family:var(--mono)}
   .hero-foot{margin-top:18px;font-family:var(--mono);font-size:12px;color:var(--foam-dim)}
   .hero-foot b{color:var(--ok);font-weight:400}
 
@@ -201,7 +207,7 @@
       <span class="links">
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
-        <a class="btn" href="#get">Add to Chrome</a>
+        <a class="btn" href="#get" data-goatcounter-click="cta-nav">Coming soon</a>
       </span>
     </nav>
 
@@ -211,12 +217,12 @@
       <p class="sub">Ferry exports your conversations to clean Markdown. Code, tables, and math stay intact, and every code block becomes a real file. It all runs on your device.</p>
       <!-- STORE LINKS: swap the placeholder IDs for the real listing URLs once each store approves. -->
       <div class="cta-row" id="get">
-        <a class="btn-primary" href="https://chromewebstore.google.com/detail/CHROME_ID" data-store="chrome">Add to Chrome, free</a>
+        <form class="notify" onsubmit="return notifySubmit(event)" novalidate>
+          <input type="email" name="email" placeholder="you@harbor.com" required autocomplete="email" aria-label="Email address">
+          <button class="btn-primary" type="submit">Notify me at launch</button>
+        </form>
       </div>
-      <div class="cta-alt">
-        <a class="btn-ghost" href="https://microsoftedge.microsoft.com/addons/detail/EDGE_ID" data-store="edge">Add to Edge</a>
-        <a class="btn-ghost" href="https://addons.mozilla.org/firefox/addon/" data-store="firefox">Add to Firefox</a>
-      </div>
+      <p class="coming" id="nmsg">Launching on the Chrome Web Store in days. First 100 aboard get launch pricing locked in.</p>
       <p class="hero-foot"><b>Local and private.</b> Your chats never touch our servers. No tracking.</p>
     </div>
   </div>
@@ -290,7 +296,7 @@ def fib(n):
           <li>Clipboard &amp; Obsidian</li>
           <li>Full fidelity: code, tables, math</li>
         </ul>
-        <a class="pick" href="#get">Add to browser</a>
+        <a class="pick" href="#get" data-goatcounter-click="cta-free">Notify me, it’s free</a>
       </div>
       <div class="berth pro">
         <span class="tag">Cabin, Pro</span>
@@ -308,7 +314,8 @@ def fib(n):
           <span>6 mo · <b>$12.99</b></span>
           <span class="hl">1 yr · <b>$19.99</b></span>
         </div>
-        <a class="pick" href="#get">Get Ferry Pro</a>
+        <a class="pick" href="#get" data-goatcounter-click="cta-pro">Get Ferry Pro at launch</a>
+        <p class="guarantee">30-day money-back guarantee. No questions asked.</p>
       </div>
     </div>
   </div>
@@ -337,5 +344,16 @@ def fib(n):
 </footer>
 
 <script src="/sea.js" defer></script>
+<script>
+async function notifySubmit(e){e.preventDefault();var f=e.target,m=document.getElementById('nmsg'),em=f.email.value.trim();
+if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){m.textContent='That email doesn\u2019t look right \u2014 try again.';return false}
+var b=f.querySelector('button');b.disabled=true;b.textContent='\u2026';
+try{var r=await fetch('https://ferry-api.techcesories.workers.dev/notify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em})});
+if(!r.ok)throw 0;m.textContent='Aboard. One email at launch, nothing else.';f.reset();
+if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'notify-signup',event:true});
+}catch(_){m.innerHTML='Couldn\u2019t reach the harbor \u2014 email <a href="mailto:contactus@techcesories.com?subject=Notify me when Ferry launches">contactus@techcesories.com</a> and we\u2019ll add you.';}
+b.disabled=false;b.textContent='Notify me at launch';return false}
+</script>
+<script data-goatcounter="https://ferry.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
