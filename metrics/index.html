@@ -19,6 +19,7 @@ h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--foam
 #gate{max-width:340px;margin:16vh auto 0;text-align:center}
 #gate .lock{font-size:34px}#gate h1{font-size:19px;margin:14px 0 18px}
 #gate input{width:100%;padding:13px 15px;border-radius:11px;border:1px solid var(--line);background:var(--card);color:#eaf2f0;font-size:15px;font-family:var(--ui);text-align:center}
+#gate input+input{margin-top:8px}
 #gate input:focus{outline:none;border-color:var(--beacon)}
 #gate button{margin-top:12px;width:100%;padding:13px;border:0;border-radius:11px;background:var(--beacon);color:var(--ink);font-weight:700;font-size:15px;cursor:pointer}
 #gerr{color:#e8846a;font-size:12.5px;font-family:var(--mono);margin-top:12px;min-height:16px}
@@ -28,7 +29,8 @@ h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--foam
   <div class="lock">⛴️</div>
   <h1>Ferry bridge — private</h1>
   <form onsubmit="return tryAuth(event)">
-    <input id="pw" type="password" placeholder="password" autocomplete="current-password" autofocus>
+    <input id="usr" type="text" placeholder="username" autocomplete="username" autofocus>
+    <input id="pw" type="password" placeholder="password" autocomplete="current-password">
     <button type="submit">Enter</button>
     <div id="gerr"></div>
   </form>
@@ -65,10 +67,10 @@ h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--foam
 </div>
 
 <script>
-var HASH="df314e03c763c3954776e3a765d979ab1e3226bcb31451c5efbb73c44d42e1fd";
+var HASH="c3f826a286dbf5f8b56f50bca6495dc6d9ccac68ef183bc2740e4a2ca205c201";
 async function sha(s){var b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0")}).join("")}
-async function tryAuth(e){if(e)e.preventDefault();var h=await sha(document.getElementById("pw").value);
-if(h===HASH){try{sessionStorage.setItem("fm","1")}catch(_){}; show()}else{document.getElementById("gerr").textContent="Wrong password."}return false}
+async function tryAuth(e){if(e)e.preventDefault();var h=await sha(document.getElementById("usr").value+":"+document.getElementById("pw").value);
+if(h===HASH){try{sessionStorage.setItem("fm","1")}catch(_){}; show()}else{document.getElementById("gerr").textContent="Wrong username or password."}return false}
 function show(){document.getElementById("gate").style.display="none";document.querySelector(".wrap").style.display="block";renderMetrics()}
 try{if(sessionStorage.getItem("fm")==="1")addEventListener("DOMContentLoaded",show)}catch(_){}
 
