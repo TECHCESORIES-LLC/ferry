@@ -17,7 +17,8 @@ Pricing is pay-once prepaid tiers plus an optional auto-renewing annual plan: 1 
 
 ## Key facts
 - Product type: browser extension (Manifest V3)
-- Browsers: Chrome, Edge, Firefox, Brave, Arc
+- Install: Chrome Web Store — https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao
+- Browsers: Chrome, Edge, Brave, Arc
 - Operating systems: Windows, macOS, Linux
 - Supported sources: ChatGPT (OpenAI) and Claude (Anthropic)
 - Export formats: Markdown, JSON, PDF

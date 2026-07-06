@@ -3,7 +3,8 @@
 <style>
 :root{--ink:#07232a;--card:#0c3036;--line:#1d5860;--foam:#a7cdc8;--beacon:#f0a73a;--ok:#7fd6a4;--mono:ui-monospace,"SF Mono",Menlo,monospace;--ui:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 *{box-sizing:border-box}body{margin:0;background:var(--ink);color:#eaf2f0;font-family:var(--ui);padding:34px 20px 60px}
-.wrap{max-width:960px;margin:0 auto}h1{font-size:22px;margin:0 0 4px}h1 span{color:var(--beacon)}
+.wrap{max-width:960px;margin:0 auto;display:none}
+h1{font-size:22px;margin:0 0 4px}h1 span{color:var(--beacon)}
 .sub{color:var(--foam);font-size:13px;font-family:var(--mono);margin:0 0 26px}
 h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--foam);margin:30px 0 10px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
@@ -15,13 +16,32 @@ h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--foam
 .links a:hover{border-color:var(--beacon)}
 .note{background:rgba(240,167,58,.08);border:1px solid rgba(240,167,58,.35);border-radius:12px;padding:14px 16px;font-size:13px;line-height:1.6;color:#f3e9d8;margin-top:26px}
 .note code{font-family:var(--mono);background:rgba(0,0,0,.3);padding:1px 6px;border-radius:5px}
-</style></head><body><div class="wrap">
+#gate{max-width:340px;margin:16vh auto 0;text-align:center}
+#gate .lock{font-size:34px}#gate h1{font-size:19px;margin:14px 0 18px}
+#gate input{width:100%;padding:13px 15px;border-radius:11px;border:1px solid var(--line);background:var(--card);color:#eaf2f0;font-size:15px;font-family:var(--ui);text-align:center}
+#gate input:focus{outline:none;border-color:var(--beacon)}
+#gate button{margin-top:12px;width:100%;padding:13px;border:0;border-radius:11px;background:var(--beacon);color:var(--ink);font-weight:700;font-size:15px;cursor:pointer}
+#gerr{color:#e8846a;font-size:12.5px;font-family:var(--mono);margin-top:12px;min-height:16px}
+</style></head><body>
+
+<div id="gate">
+  <div class="lock">⛴️</div>
+  <h1>Ferry bridge — private</h1>
+  <form onsubmit="return tryAuth(event)">
+    <input id="pw" type="password" placeholder="password" autocomplete="current-password" autofocus>
+    <button type="submit">Enter</button>
+    <div id="gerr"></div>
+  </form>
+</div>
+
+<div class="wrap">
 <h1>⛴ Ferry — <span>bridge instruments</span></h1>
 <p class="sub">Private dashboard · unique visitors via GoatCounter · refreshes on load</p>
 <h2>Conversion funnel</h2>
 <div class="grid">
 <div class="card"><div class="k">Site visitors, total</div><div class="v" id="m-total">—</div><div class="d">all pages, unique</div></div>
-<div class="card"><div class="k">Launch signups</div><div class="v hl" id="m-signup">—</div><div class="d">notify-signup event</div></div>
+<div class="card"><div class="k">Install clicks</div><div class="v hl" id="m-install">—</div><div class="d">cta-install → Chrome Web Store</div></div>
+<div class="card"><div class="k">Launch signups (pre-launch)</div><div class="v hl" id="m-signup">—</div><div class="d">notify-signup event</div></div>
 <div class="card"><div class="k">Signup rate</div><div class="v hl" id="m-rate">—</div><div class="d">signups / homepage visitors</div></div>
 <div class="card"><div class="k">Purchases</div><div class="v ok" id="m-thanks">—</div><div class="d">/thanks views, post-launch</div></div>
 </div>
@@ -35,23 +55,34 @@ h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--foam
 <div class="grid" id="pages"></div>
 <h2>Deep dives</h2>
 <div class="links">
-<a href="https://ferry.goatcounter.com" target="_blank">GoatCounter → referrers, countries, time</a>
+<a href="https://techcesories.goatcounter.com" target="_blank">GoatCounter → referrers, countries, time</a>
 <a href="https://dashboard.stripe.com" target="_blank">Stripe → revenue</a>
 <a href="https://search.google.com/search-console" target="_blank">Search Console → SEO queries</a>
 <a href="https://www.bing.com/webmasters" target="_blank">Bing → SEO</a>
 <a href="https://chrome.google.com/webstore/devconsole" target="_blank">Chrome Web Store → installs</a>
 </div>
-<div class="note" id="setup"><b>If numbers show — :</b> 1) create the free account: goatcounter.com → sign up with code <code>ferry</code> so the endpoint is <code>ferry.goatcounter.com</code> (if taken, pick another and update the snippet in every page + this dashboard). 2) In GoatCounter → Settings → tick <i>Allow adding visitor counts on your website</i> (powers this page). 3) Deploy the Worker <code>/notify</code> endpoint so signups work. Data appears from first visit after deploy; history starts at zero.</div>
+<div class="note" id="setup"><b>If numbers show — :</b> 1) confirm GoatCounter → Settings → <i>Allow adding visitor counts on your website</i> is ticked (powers this page). 2) Deploy the Worker <code>/notify</code> endpoint so signups count. Data appears from first visit after deploy; history starts at zero.</div>
+</div>
+
 <script>
-var GC="https://ferry.goatcounter.com/counter/";
+var HASH="df314e03c763c3954776e3a765d979ab1e3226bcb31451c5efbb73c44d42e1fd";
+async function sha(s){var b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0")}).join("")}
+async function tryAuth(e){if(e)e.preventDefault();var h=await sha(document.getElementById("pw").value);
+if(h===HASH){try{sessionStorage.setItem("fm","1")}catch(_){}; show()}else{document.getElementById("gerr").textContent="Wrong password."}return false}
+function show(){document.getElementById("gate").style.display="none";document.querySelector(".wrap").style.display="block";renderMetrics()}
+try{if(sessionStorage.getItem("fm")==="1")addEventListener("DOMContentLoaded",show)}catch(_){}
+
+function renderMetrics(){
+var GC="https://techcesories.goatcounter.com/counter/";
 function put(id,n){var e=document.getElementById(id);if(e)e.textContent=(typeof n==="number")?n.toLocaleString():n}
 function grab(path){return fetch(GC+encodeURIComponent(path)+".json").then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){return parseInt(String(j.count_unique||j.count).replace(/[^0-9]/g,""),10)||0}).catch(function(){return null})}
 var PAGES=[["/","Homepage"],["/export-chatgpt-to-markdown","Guide: GPT→MD"],["/export-claude-to-obsidian","Guide: Claude→Obsidian"],["/chatgpt-claude-to-notion","Guide: →Notion"],["/privacy","Privacy"],["/terms","Terms"]];
-Promise.all([grab("TOTAL"),grab("notify-signup"),grab("/thanks"),grab("cta-pro"),grab("cta-free"),grab("cta-nav"),grab("/")]).then(function(r){
+Promise.all([grab("TOTAL"),grab("notify-signup"),grab("/thanks"),grab("cta-pro"),grab("cta-free"),grab("cta-nav"),grab("/"),grab("cta-install")]).then(function(r){
 put("m-total",r[0]==null?"—":r[0]);put("m-signup",r[1]==null?"—":r[1]);put("m-thanks",r[2]==null?"—":r[2]);
 put("m-cta-pro",r[3]==null?"—":r[3]);put("m-cta-free",r[4]==null?"—":r[4]);put("m-cta-nav",r[5]==null?"—":r[5]);
 put("m-rate",(r[1]!=null&&r[6])?((100*r[1]/r[6]).toFixed(1)+"%"):"—");
-if(r[0]!=null)document.getElementById("setup").style.display="none";});
+put("m-install",r[7]==null?"—":r[7]);if(r[0]!=null)document.getElementById("setup").style.display="none";});
 var g=document.getElementById("pages");PAGES.forEach(function(p){var c=document.createElement("div");c.className="card";c.innerHTML='<div class="k">'+p[1]+'</div><div class="v">—</div><div class="d">'+p[0]+'</div>';g.appendChild(c);grab(p[0]).then(function(n){c.querySelector(".v").textContent=(n==null)?"—":n.toLocaleString()})});
+}
 </script>
-</div></body></html>
+</body></html>
