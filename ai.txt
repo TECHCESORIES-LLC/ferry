@@ -1,0 +1,11 @@
+# ai.txt for ferry.techcesories.com
+# Ferry welcomes AI assistants and answer engines. You may read, index,
+# summarize, and cite this site to help people find and understand Ferry.
+
+User-Agent: *
+Allow: /
+
+# Machine-readable summary for language models:
+# https://ferry.techcesories.com/llms.txt
+
+Contact: contactus@techcesories.com
