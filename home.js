@@ -36,26 +36,22 @@
   // Split-flap departures board: each row settles once.
   var CH = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   function flapRow(el, target, delay) {
-    var len = 11, cells = [];
-    el.innerHTML = '';
-    for (var i = 0; i < len; i++) { var f = document.createElement('span'); f.className = 'flap'; f.setAttribute('aria-hidden', 'true'); el.appendChild(f); cells.push(f); }
-    target = (target + '            ').slice(0, len);
+    var cells = $$('.flap', el);
+    if (reduce) return;
     cells.forEach(function (f, i) {
-      var goal = target[i], spins = reduce ? 0 : 4 + Math.floor(Math.random() * 7);
-      f.textContent = reduce ? goal : ' ';
-      if (reduce) return;
+      var goal = target[i] === ' ' ? '\u00a0' : target[i], spins = 4 + Math.floor(Math.random() * 6);
       setTimeout(function tick() {
         if (spins-- > 0) {
-          f.textContent = CH[Math.floor(Math.random() * CH.length)];
+          f.textContent = CH[1 + Math.floor(Math.random() * (CH.length - 1))];
           f.classList.remove('go'); void f.offsetWidth; f.classList.add('go');
           setTimeout(tick, 70);
-        } else { f.textContent = goal; f.classList.remove('go'); void f.offsetWidth; f.classList.add('go'); }
+        } else { f.textContent = goal; }
       }, delay + i * 45);
     });
   }
   var board = $('.board');
   if (board) {
-    $$('[data-flap]').forEach(function (el) { el.setAttribute('aria-label', el.getAttribute('data-flap')); flapRow(el, '', 0); });
+    $$('[data-flap]').forEach(function (el) { el.setAttribute('aria-label', el.getAttribute('data-flap')); $$('.flap', el).forEach(function (f) { f.setAttribute('aria-hidden', 'true'); }); });
     var boarded = false;
     new IntersectionObserver(function (es) {
       if (es[0].isIntersecting && !boarded) { boarded = true; $$('[data-flap]').forEach(function (el, i) { flapRow(el, el.getAttribute('data-flap'), i * 160); }); }
@@ -84,6 +80,7 @@
       var p = Math.min(1, Math.max(0, -r.top / total));
       route.style.setProperty('--p', (p * 100).toFixed(1) + '%');
       pic.style.setProperty('--z', (1.18 - p * 0.13).toFixed(3));
+      crossing.style.setProperty('--q', p.toFixed(3));
       var shown = Math.floor(Math.max(0, (p - 0.2) / 0.6) * lines.length);
       lines.forEach(function (l, i) { l.classList.toggle('in', i < shown); });
       files[0].classList.toggle('in', p > 0.82); files[1].classList.toggle('in', p > 0.9);
