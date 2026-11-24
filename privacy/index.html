@@ -49,11 +49,12 @@
 <h2>The short version</h2>
 <ul>
 <li>Ferry converts your conversations on your device. <strong>Our servers never receive conversation content.</strong> Ferry has one server, a licensing service, and it only sees the items listed below.</li>
-<li>Ferry reads a page only when you click it. When you click the Ferry icon and choose an export, it reads the conversation open in the current tab, converts it to Markdown, and hands the result to you (download, clipboard, or your Obsidian vault). <strong>That content is not sent to us.</strong></li>
-<li><strong>Gemini (optional):</strong> Gemini support is off until you click <strong>Allow Gemini</strong> and approve Chrome's prompt for gemini.google.com. After that, Ferry reads a Gemini chat the same way: only the one you have open, only when you click Ferry. You can remove this access at any time in Chrome's extension settings.</li>
+<li>Ferry reads a chat when you click it, or, if you turn on <strong>Auto-capture</strong> (Pro, off by default), each ChatGPT or Claude chat you open. When you click the Ferry icon and choose an export, it reads the conversation open in the current tab, converts it to Markdown, and hands the result to you (download, clipboard, or your Obsidian vault). <strong>That content is not sent to us.</strong></li>
+<li><strong>Gemini (optional):</strong> Gemini support is off until you click <strong>Allow Gemini</strong> and approve Chrome's prompt for gemini.google.com. After that, Ferry reads the Gemini chat you have open when you click Ferry, or, for Pro full-history export, your Gemini conversations when you start that export. Auto-capture does not run on Gemini. You can remove this access at any time in Chrome's extension settings.</li>
 <li><strong>Pro licensing:</strong> to check whether you have an active subscription, Ferry sends an <strong>anonymous install ID</strong> (a random identifier, no name, no email) to our licensing service, which verifies it against Stripe. No conversation content is ever involved. Payment details go only to Stripe. The install ID is also mirrored through <strong>Chrome's own built-in sync</strong> (still anonymous) so your Pro access follows you across your signed-in Chrome browsers.</li>
 <li><strong>Restoring Pro (optional):</strong> if you reinstall, switch browsers, or move to a new device, you can restore Pro by entering the email you paid with. Our licensing service <strong>emails a 6-digit one-time code to that address</strong>; you enter it to prove the inbox is yours, and it re-links your purchase to your new install. The email is used <strong>only</strong> for that recovery and is <strong>not stored</strong> by us. No card details are ever involved.</li>
-<li><strong>Bulk migration (Pro):</strong> when you start a migration, Ferry uses your existing logged-in session to read your conversation list and conversations from ChatGPT's or Claude's own API, <strong>in your browser</strong>, converts them to Markdown locally, and packages them into a ZIP you download. This data is processed on your device and <strong>not sent to us</strong>. You choose which conversations to include.</li>
+<li><strong>Auto-capture (Pro, optional):</strong> while it is on, Ferry saves each ChatGPT or Claude chat you open to a queue stored in your browser, so you can export them later. Nothing is uploaded. Turn it off in the popup at any time, and clear the queue whenever you like.</li>
+<li><strong>Bulk migration (Pro):</strong> when you start a migration, Ferry uses your existing logged-in session to read your conversation list and conversations from ChatGPT's, Claude's or Gemini's own site, <strong>in your browser</strong>, converts them to Markdown locally, and packages them into a ZIP you download. This data is processed on your device and <strong>not sent to us</strong>. You choose which conversations to include.</li>
 <li><strong>Optional integrations:</strong> if <em>you</em> configure Notion or GitHub with your own access token, Ferry sends the conversation you choose <strong>directly from your browser to that service, using your credentials</strong>, at your request. We never receive or relay it.</li>
 <li>The extension does <strong>not</strong> collect analytics, track your browsing, build profiles, serve ads, or sell data.</li>
 </ul>
@@ -67,7 +68,7 @@
 <tr>
 <td><strong>Website content / personal communications</strong></td>
 <td>The text of the conversation you choose to export</td>
-<td>Read only from the tab you click Ferry on (ChatGPT, Claude, or Gemini once you allow it). Processed in memory on your device. Written only to the destination you pick. <strong>Not transmitted to us.</strong></td>
+<td>Read from the tab you click Ferry on (ChatGPT, Claude, or Gemini once you allow it), or from chats you open while Pro auto-capture is on. Processed on your device. Written only to the destination you pick. <strong>Not transmitted to us.</strong></td>
 <td>To produce the Markdown export, the extension's single purpose</td>
 </tr>
 <tr>
@@ -116,8 +117,8 @@
 <tr><td><strong>activeTab</strong></td><td>Gives Ferry access to the current tab only at the moment you click the Ferry icon, so it can read the chat you chose. It ends when you leave or close the tab.</td></tr>
 <tr><td><strong>scripting</strong></td><td>Lets Ferry run its reader in that tab, after your click, to collect the conversation from the page. Ferry runs only its own packaged code; it loads no remote code.</td></tr>
 <tr><td><strong>storage</strong></td><td>Keeps your settings, integration keys and Pro status in your browser.</td></tr>
-<tr><td><strong>chatgpt.com, chat.openai.com, claude.ai</strong></td><td>Reads the open conversation, and for Pro full-history export, your conversation list, using your existing login.</td></tr>
-<tr><td><strong>gemini.google.com</strong> (optional)</td><td>Requested only when you click Allow Gemini. Reads the Gemini chat you have open when you click Ferry.</td></tr>
+<tr><td><strong>chatgpt.com, chat.openai.com, claude.ai</strong></td><td>Reads the open conversation, and for Pro full-history export and auto-capture, your conversations, using your existing login.</td></tr>
+<tr><td><strong>gemini.google.com</strong> (optional)</td><td>Requested only when you click Allow Gemini. Reads the Gemini chat you have open when you click Ferry, and for Pro full-history export, your Gemini conversations.</td></tr>
 <tr><td><strong>ferry-api.techcesories.workers.dev</strong></td><td>Our licensing service. Receives a random install ID, and your billing email only if you use Restore Pro. Never conversation content.</td></tr>
 <tr><td><strong>api.notion.com, api.github.com</strong></td><td>Used only if you set up Notion or GitHub (Pro). The chat goes from your browser to your own account with your own key.</td></tr>
 </tbody>
@@ -143,7 +144,7 @@
 <p>This website uses GoatCounter, a privacy-first analytics tool, to count page views in aggregate. It sets no cookies, stores no personal information, and does not track you across sites.</p>
 <h2>Changes</h2>
 <p>We'll update this page and its "last updated" date for any material change, and describe what changed.</p>
-<p><strong>November 24, 2026 (0.10.0):</strong> added optional Gemini support and the activeTab and scripting permissions; listed every permission; corrected how locally stored data is described (stored in your browser, not described as encrypted).</p>
+<p><strong>November 24, 2026 (0.10.0):</strong> added optional Gemini support, the activeTab and scripting permissions, and a description of Pro auto-capture; listed every permission; corrected how locally stored data is described (stored in your browser, not described as encrypted).</p>
 </div></div></main>
 <footer class="foot">
     <div class="wrap">

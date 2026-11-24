@@ -315,3 +315,4 @@ h2.mega,.mega{font-family:var(--mega);font-weight:800;font-stretch:125%;text-tra
 .article .related{font-size:15px;color:var(--foam)}
 .article .related a{color:var(--beacon)}
 .out pre[hidden]{display:none}
+.history .note{font-size:14.5px;line-height:1.55;color:#c9dcd8;margin:16px 0 0;max-width:34em}

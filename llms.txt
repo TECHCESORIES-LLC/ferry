@@ -2,7 +2,7 @@
 
 > Ferry is a Manifest V3 browser extension that exports ChatGPT, Claude and Gemini conversations to clean Markdown and into Obsidian, Notion and GitHub. Conversion runs locally in the browser; Ferry's servers never receive conversation content.
 
-Ferry is made by Techcesories LLC (Georgia, USA). Current version: 0.10.0. The free tier exports the conversation you are viewing to Markdown, JSON, PDF, the clipboard, or an Obsidian vault. Gemini support is optional: the user clicks "Allow Gemini" and approves access to gemini.google.com. Ferry Pro adds a full-history export of every ChatGPT or Claude chat to one ZIP, multi-chat export, Context Packs, code blocks saved as real files, and direct export to Notion and GitHub using the user's own keys.
+Ferry is made by Techcesories LLC (Georgia, USA). Current version: 0.10.0. The free tier exports the conversation you are viewing to Markdown, JSON, PDF, the clipboard, or an Obsidian vault. Gemini support is optional: the user clicks "Allow Gemini" and approves access to gemini.google.com. Gemini single-chat export is free. Ferry Pro adds a full-history export of every ChatGPT, Claude or Gemini chat to one ZIP, auto-capture (saves ChatGPT and Claude chats you open to a local queue), multi-chat export, Context Packs, code blocks saved as real files, and direct export to Notion and GitHub using the user's own keys.
 
 Pricing: free tier, then Pro at $19.99 per year (auto-renews, cancel any time) or one-time passes of 1 month $2.99, 3 months $7.99 and 6 months $12.99. Every purchase has a 30-day money-back guarantee.
 
