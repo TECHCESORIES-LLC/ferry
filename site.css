@@ -57,7 +57,7 @@ img{display:block;max-width:100%}
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:140px 0 9vh;overflow:hidden}
 .hero .wrap{position:relative;z-index:1}
 .hero h1{font-family:var(--mega);font-weight:800;text-transform:uppercase;line-height:.88;letter-spacing:.005em;margin:0;
-  font-size:min(9.4vw,15vh,150px);max-width:9.5em}
+  font-size:min(8.6vw,14vh,140px);max-width:6.4em}
 .hero h1 .serif{font-size:.62em;color:var(--beacon);text-transform:none}
 .hero__lead{font-size:clamp(18px,1.45vw,21px);color:#d6e7e3;max-width:33em;margin:28px 0 0}
 .hero__cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
