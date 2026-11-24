@@ -286,3 +286,8 @@ h2.mega,.mega{font-family:var(--mega);font-weight:800;text-transform:uppercase;l
   *,*::before,*::after{animation:none!important;transition:none!important}
   .enter,.rv{opacity:1;transform:none}
 }
+/* hero photo sits right so the ship clears the headline */
+.photo--hero{left:34%}
+.photo--hero::before{content:"";position:absolute;inset:0 auto 0 0;width:30%;z-index:1;background:linear-gradient(90deg,var(--deep),rgba(5,26,31,0))}
+@media (max-width:820px){.photo--hero{left:0}.photo--hero::before{display:none}}
+.foot .shade-bottom::after{background:linear-gradient(0deg,rgba(5,26,31,1) 0%,rgba(5,26,31,.88) 45%,rgba(5,26,31,.6) 100%)}
