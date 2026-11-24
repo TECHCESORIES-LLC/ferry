@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How to Export ChatGPT to Markdown (2026) | Ferry</title>
 <link rel="canonical" href="https://ferry.techcesories.com/export-chatgpt-to-markdown/" />
-<meta name="theme-color" content="#07232a" />
+<meta name="theme-color" content="#051a1f" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Ferry" />
 <meta property="og:title" content="How to Export ChatGPT to Markdown (2026) | Ferry" />
@@ -20,16 +20,12 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/sea.css" />
+<link rel="preconnect" href="https://images.unsplash.com" />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/site.css" />
-<link rel="stylesheet" href="/sea.css" />
 </head><body>
 <a class="skip" href="#top">Skip to content</a>
-<canvas class="seascape" id="seaCanvas" aria-hidden="true"></canvas>
-<div id="seaDim" aria-hidden="true"></div>
-<div id="cursorLight" aria-hidden="true"></div>
-<div id="stormFlash" aria-hidden="true"></div>
+<div class="page-bg" aria-hidden="true"><img src="https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=2000&q=72" srcset="https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=1400&q=72 1400w, https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=2000&q=72 2000w, https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=2800&q=72 2800w" sizes="100vw" alt="" style="object-position:center" decoding="async"></div>
 <header class="top" id="topbar">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Ferry home">
@@ -40,8 +36,8 @@
       <a href="/#crossing">How it works</a>
       <a href="/#try">Try it</a>
       <a href="/#fares">Pricing</a>
-      <a href="/#soundings">Questions</a>
-      <a class="btn btn--beacon btn--sm magnet" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-nav" target="_blank" rel="noopener">Add to Chrome</a>
+      <a href="/#questions">Questions</a>
+      <a class="btn btn--beacon btn--sm" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-nav" target="_blank" rel="noopener">Add to Chrome</a>
     </nav>
   </div>
 </header>
@@ -62,11 +58,11 @@
 <details><summary>Can I export many chats at once?</summary><p>Yes, with Pro: queue multiple conversations and download them as a single ZIP, or merge them into one "Context Pack" to re-feed into a model.</p></details>
 <details><summary>Does it support code blocks and tables?</summary><p>That's the whole point, fenced code with language detection, GFM tables, math and lists all survive the export.</p></details>
 </div></div></main>
-<footer class="foot" data-depth="Seafloor">
-  <div class="wrap">
+<footer class="foot">
+    <div class="wrap">
     <div class="foot__close">
-      <h2 class="mega">Keep every chat<br>you've <span class="serif">ever</span> had</h2>
-      <a class="btn btn--beacon magnet" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-close" target="_blank" rel="noopener"><span class="dot"></span>Add to Chrome, free</a>
+      <h2 class="mega">Keep every chat you've <span class="serif">ever</span> had</h2>
+      <a class="btn btn--beacon" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-close" target="_blank" rel="noopener">Add to Chrome, free</a>
     </div>
     <div class="foot__row">
       <div><p class="foot__about">Ferry is a browser extension by Techcesories LLC, Georgia. Not affiliated with OpenAI or Anthropic.</p></div>
@@ -74,12 +70,10 @@
       <div><h3>Ferry</h3><ul><li><a href="/#crossing">How it works</a></li><li><a href="/#fares">Pricing</a></li><li><a href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao/reviews" target="_blank" rel="noopener" data-goatcounter-click="cta-review">Leave a review</a></li></ul></div>
       <div><h3>Company</h3><ul><li><a href="mailto:contactus@techcesories.com">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/cookies/">Cookies</a></li></ul></div>
     </div>
+    <div class="foot__legal"><span>© 2026 Techcesories LLC · Photographs via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span><span>ChatGPT is a trademark of OpenAI. Claude is a trademark of Anthropic.</span></div>
   </div>
-  <p class="foot__word" aria-hidden="true">Ferry</p>
-  <div class="wrap"><div class="foot__legal"><span>© 2026 Techcesories LLC</span><span>ChatGPT is a trademark of OpenAI. Claude is a trademark of Anthropic.</span></div></div>
 </footer>
 <script src="/home.js" defer></script>
-<script src="/sea.js" defer></script>
 <script data-goatcounter="https://techcesories.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <title>Ferry: Export ChatGPT & Claude to Markdown & Obsidian</title>
 <meta name="description" content="Ferry is a browser extension that exports ChatGPT and Claude chats to clean Markdown, Obsidian, Notion and GitHub. Code, tables and math stay intact. Runs locally." />
 <link rel="canonical" href="https://ferry.techcesories.com/" />
-<meta name="theme-color" content="#07232a" />
+<meta name="theme-color" content="#051a1f" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ferry" />
@@ -25,16 +25,12 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does Ferry send my conversations anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Ferry converts chats inside your browser and never receives them. Pro checks your license with an anonymous ID through Stripe. A chat leaves your device only when you send it to Obsidian, Notion or GitHub with your own credentials."}},{"@type":"Question","name":"Which browsers work?","acceptedAnswer":{"@type":"Answer","text":"Chrome, Edge, Brave and Arc, on Windows, macOS and Linux."}},{"@type":"Question","name":"Is Pro a subscription?","acceptedAnswer":{"@type":"Answer","text":"Only the yearly plan, which renews and can be cancelled any time. The 1, 3 and 6 month passes are paid once and end on their own."}},{"@type":"Question","name":"Can I get a refund?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every purchase has a 30-day money-back guarantee."}}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/sea.css" />
-<link rel="stylesheet" href="/site.css" />
+<link rel="preconnect" href="https://images.unsplash.com" />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="site.css" />
 </head>
 <body>
 <a class="skip" href="#top">Skip to content</a>
-<div id="boarding" aria-hidden="true"><span>NOW BOARDING ⛴</span></div>
-<canvas class="seascape" id="seaCanvas" aria-hidden="true"></canvas>
-<div id="cursorLight" aria-hidden="true"></div>
-<div id="stormFlash" aria-hidden="true"></div>
 
 <header class="top" id="topbar">
   <div class="wrap">
@@ -46,52 +42,35 @@
       <a href="/#crossing">How it works</a>
       <a href="/#try">Try it</a>
       <a href="/#fares">Pricing</a>
-      <a href="/#soundings">Questions</a>
-      <a class="btn btn--beacon btn--sm magnet" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-nav" target="_blank" rel="noopener">Add to Chrome</a>
+      <a href="/#questions">Questions</a>
+      <a class="btn btn--beacon btn--sm" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-nav" target="_blank" rel="noopener">Add to Chrome</a>
     </nav>
   </div>
 </header>
 
-<div class="gauge" aria-hidden="true"><b id="gaugeLabel">SURFACE</b><div class="gauge__tube"><i id="gaugeDot"></i></div><span id="gaugeDepth">0 m</span></div>
-
 <main id="top">
   <section class="hero">
-    <p class="hero__tag">Route <b>ChatGPT / Claude</b><br>to Markdown, Obsidian, Notion<br>Departs from your browser</p>
+    <div class="photo photo--hero shade-left" aria-hidden="true"><img src="https://images.unsplash.com/photo-1480742444427-f4bb0573e315?auto=format&fit=crop&w=2000&q=72" srcset="https://images.unsplash.com/photo-1480742444427-f4bb0573e315?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1480742444427-f4bb0573e315?auto=format&fit=crop&w=1400&q=72 1400w, https://images.unsplash.com/photo-1480742444427-f4bb0573e315?auto=format&fit=crop&w=2000&q=72 2000w, https://images.unsplash.com/photo-1480742444427-f4bb0573e315?auto=format&fit=crop&w=2800&q=72 2800w" sizes="100vw" alt="" style="object-position:62% 50%" fetchpriority="high"></div>
     <div class="wrap">
-      <h1 aria-label="Ferry your AI chats ashore">
-        <span class="row" aria-hidden="true" data-split>Ferry</span>
-        <span class="row row--2" aria-hidden="true"><span class="serif">your</span><span data-split>AI chats</span></span>
-        <span class="row" aria-hidden="true" data-split>ashore</span>
-      </h1>
-      <div class="hero__foot">
-        <p class="hero__lead"><b>Ferry is a browser extension that exports ChatGPT and Claude chats to clean Markdown</b> for Obsidian, Notion or GitHub. Code blocks, tables and math arrive intact, and every byte is converted on your own computer.</p>
-        <div class="hero__cta">
-          <div class="row">
-            <a class="btn btn--beacon magnet" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-install" target="_blank" rel="noopener"><span class="dot"></span>Add to Chrome, free</a>
-            <a class="btn btn--ghost magnet" href="#crossing" data-goatcounter-click="cta-how">Watch the crossing</a>
-          </div>
-          <span class="hero__fine">Free for single chats · Pro from $2.99 · Chrome, Edge, Brave, Arc</span>
-        </div>
+      <h1 class="enter">Ferry your AI chats <span class="serif">ashore</span></h1>
+      <p class="hero__lead enter">Ferry is a browser extension that exports ChatGPT and Claude chats to clean Markdown for Obsidian, Notion or GitHub. Code, tables and math arrive intact, and the conversion runs on your own computer.</p>
+      <div class="hero__cta enter">
+        <a class="btn btn--beacon" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-install" target="_blank" rel="noopener">Add to Chrome, free</a>
+        <a class="btn btn--ghost" href="#crossing" data-goatcounter-click="cta-how">See how it works</a>
       </div>
+      <span class="hero__fine enter">Free for single chats · Pro from $2.99 · Chrome, Edge, Brave, Arc</span>
     </div>
+    <p class="hero__coords" aria-hidden="true">Route <b>ChatGPT / Claude → Markdown</b><br>Departs from your browser</p>
   </section>
 
-  <div class="band" aria-hidden="true"><div class="band__track">
-    <span>ChatGPT <i>⛴</i> Markdown <i>◆</i> Claude <i>⛴</i> Obsidian <i>◆</i> Code as files <i>◆</i> Tables intact <i>◆</i> Math intact <i>◆</i></span>
-    <span>ChatGPT <i>⛴</i> Markdown <i>◆</i> Claude <i>⛴</i> Obsidian <i>◆</i> Code as files <i>◆</i> Tables intact <i>◆</i> Math intact <i>◆</i></span>
-  </div></div>
-  <div class="band band--rev" aria-hidden="true"><div class="band__track">
-    <span>Local first <i>⚓</i> No account <i>⚓</i> No tracking <i>⚓</i> Your keys <i>⚓</i> Your files <i>⚓</i></span>
-    <span>Local first <i>⚓</i> No account <i>⚓</i> No tracking <i>⚓</i> Your keys <i>⚓</i> Your files <i>⚓</i></span>
-  </div></div>
-
-  <section class="sec" id="departures" data-depth="Departures">
+  <section class="sec" id="departures">
+    <div class="photo shade-full" aria-hidden="true" data-parallax><img src="https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=2000&q=72" srcset="https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=1400&q=72 1400w, https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=2000&q=72 2000w, https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=2800&q=72 2800w" sizes="100vw" alt="" style="object-position:center" loading="lazy" decoding="async"></div>
     <div class="wrap">
-      <p class="kick rv">Terminal 1</p>
-      <h2 class="mega rv">Every chat has<br>a <span class="serif">destination</span></h2>
+      <p class="kick rv">Departures</p>
+      <h2 class="mega rv">Every chat has a <span class="serif">destination</span></h2>
       <div class="board glass rv" aria-label="Export routes Ferry supports">
-        <div class="board__head"><h3>Departures</h3><span id="clock">--:--</span></div>
-        <div class="board__cols"><span>From</span><span>To</span><span>Cargo</span><span>Status</span></div>
+        <div class="board__head"><h3>Departures</h3><span id="clock"></span></div>
+        <div class="board__cols"><span>From</span><span>To</span><span>Cargo</span><span>Fare</span></div>
         <div class="board__row"><div class="flaps" data-flap="CHATGPT"></div><div class="flaps" data-flap="MARKDOWN"></div><span class="mono">.md .json .pdf</span><span class="status">Free</span></div>
         <div class="board__row"><div class="flaps" data-flap="CLAUDE"></div><div class="flaps" data-flap="OBSIDIAN"></div><span class="mono">vault note</span><span class="status">Free</span></div>
         <div class="board__row"><div class="flaps" data-flap="CHATGPT"></div><div class="flaps" data-flap="NOTION"></div><span class="mono">native blocks</span><span class="status status--b">Pro</span></div>
@@ -101,46 +80,41 @@
     </div>
   </section>
 
-  <section class="crossing" id="crossing" data-depth="The crossing">
+  <section class="crossing" id="crossing">
     <div class="crossing__stage">
-      <div class="wrap crossing__head">
-        <h2 class="mega">The <span class="serif">crossing</span></h2>
-        <p class="crossing__step" id="stepText" aria-live="polite">Scroll to set sail. A chat leaves port with its code, tables and math aboard.</p>
-      </div>
-      <div class="wrap strait">
-        <div class="dock dock--from glass">
-          <div class="dock__label">Port of departure: your chat</div>
+      <div class="photo shade-full" aria-hidden="true"><img src="https://images.unsplash.com/photo-1765463393699-460078386b10?auto=format&fit=crop&w=2000&q=72" srcset="https://images.unsplash.com/photo-1765463393699-460078386b10?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1765463393699-460078386b10?auto=format&fit=crop&w=1400&q=72 1400w, https://images.unsplash.com/photo-1765463393699-460078386b10?auto=format&fit=crop&w=2000&q=72 2000w, https://images.unsplash.com/photo-1765463393699-460078386b10?auto=format&fit=crop&w=2800&q=72 2800w" sizes="100vw" alt="" style="object-position:center" loading="lazy" decoding="async"></div>
+      <div class="crossing__inner">
+        <div class="crossing__head">
+          <h2 class="mega">The <span class="serif">crossing</span></h2>
+          <p class="crossing__step" id="stepText" aria-live="polite">A chat leaves port with its code, tables and math aboard.</p>
+        </div>
+        <div class="card glass">
+          <div class="card__label">Departure: your conversation</div>
           <div class="bubble">Write a memoized Fibonacci in Python and show the first values in a table.</div>
           <div class="reply">Here is a version using <b>lru_cache</b>:
 <pre>@lru_cache
 def fib(n):
     return n if n&lt;2 else fib(n-1)+fib(n-2)</pre>
-            The growth rate is φ<sup>n</sup>/√5.
+            It grows like φ<sup>n</sup>/√5.
             <table><tr><th>n</th><th>fib(n)</th></tr><tr><td>10</td><td>55</td></tr><tr><td>20</td><td>6765</td></tr></table>
           </div>
         </div>
-        <div class="water" aria-hidden="true">
-          <svg class="route" viewBox="0 0 600 400" preserveAspectRatio="none"><path d="M0 220 C150 120 280 300 420 190 S560 170 600 200" fill="none" stroke="rgba(240,167,58,.55)" stroke-width="2" stroke-dasharray="6 9"/></svg>
-          <div class="vessel" id="vessel">
-            <div class="crates"><span class="crate">CODE</span><span class="crate">TABLE</span><span class="crate">MATH</span><span class="crate">.PY</span></div>
-            <svg viewBox="0 0 150 80"><path d="M6 46h138l-14 22a8 8 0 0 1-7 4H27a8 8 0 0 1-7-4z" fill="#f0a73a"/><rect x="34" y="26" width="70" height="20" rx="3" fill="#f2ecdd"/><rect x="44" y="12" width="34" height="14" rx="2" fill="#f2ecdd"/><rect x="58" y="2" width="8" height="10" fill="#0a1c1f"/><g fill="#0e353c"><rect x="42" y="31" width="9" height="8" rx="1"/><rect x="56" y="31" width="9" height="8" rx="1"/><rect x="70" y="31" width="9" height="8" rx="1"/><rect x="84" y="31" width="9" height="8" rx="1"/></g><path d="M0 74c10-5 18-5 28 0s18 5 28 0 18-5 28 0 18 5 28 0 18-5 28 0" stroke="#a7cdc8" stroke-width="2" fill="none" opacity=".6"/></svg>
-          </div>
-        </div>
-        <div class="dock dock--to glass">
-          <div class="dock__label">Harbor: memoized-fibonacci.md</div>
-<pre id="mdOut"><span class="ln c">---</span><span class="ln c">title: Memoized Fibonacci</span><span class="ln c">source: ChatGPT</span><span class="ln c">---</span><span class="ln h">## You</span><span class="ln">Write a memoized Fibonacci…</span><span class="ln h">## ChatGPT</span><span class="ln"><span class="k">```python</span></span><span class="ln">@lru_cache</span><span class="ln">def fib(n): …</span><span class="ln"><span class="k">```</span></span><span class="ln">Growth: $\varphi^n/\sqrt5$</span><span class="ln">| n  | fib(n) |</span><span class="ln">| 20 | 6765   |</span></pre>
+        <div class="card glass">
+          <div class="card__label">Arrival: memoized-fibonacci.md</div>
+<pre class="md" id="mdOut"><span class="ln c">---</span><span class="ln c">title: Memoized Fibonacci</span><span class="ln c">source: ChatGPT</span><span class="ln c">---</span><span class="ln h">## You</span><span class="ln">Write a memoized Fibonacci…</span><span class="ln h">## ChatGPT</span><span class="ln"><span class="k">```python</span></span><span class="ln">@lru_cache</span><span class="ln">def fib(n): …</span><span class="ln"><span class="k">```</span></span><span class="ln">It grows like $\varphi^n/\sqrt5$.</span><span class="ln">| n  | fib(n) |</span><span class="ln">| 20 | 6765   |</span></pre>
           <div class="files"><span>memoized-fibonacci.md</span><span>artifacts/fib.py</span></div>
         </div>
+        <div class="route" id="route" aria-hidden="true"><i></i><b></b><span>Your chat</span><span>Your files</span></div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="try" data-depth="Try it">
+  <section class="sec" id="try">
     <div class="wrap try">
       <div>
-        <p class="kick rv">Pick a port</p>
-        <h2 class="mega rv">Same chat,<br>four <span class="serif">harbors</span></h2>
-        <p class="lede rv">Tap a destination to see what Ferry writes for each one, from the same conversation.</p>
+        <p class="kick rv">Try it</p>
+        <h2 class="mega rv">Same chat, four <span class="serif">harbors</span></h2>
+        <p class="lede rv">Pick a destination to see what Ferry writes for each one, from the same conversation.</p>
         <div class="tabs rv" role="tablist" aria-label="Export format">
           <button class="tab" role="tab" aria-selected="true" data-fmt="md">Markdown</button>
           <button class="tab" role="tab" aria-selected="false" data-fmt="json">JSON</button>
@@ -155,91 +129,76 @@ def fib(n):
     </div>
   </section>
 
-  <section class="sec" id="history" data-depth="Full history">
+  <section class="sec" id="history">
     <div class="wrap history">
       <div>
         <p class="kick rv">Pro · Switching assistants</p>
         <h2 class="mega rv">Bring the <span class="serif">whole</span> fleet</h2>
-        <div class="odo" id="odo" role="img" aria-label="640 chats into one ZIP"><span class="odo__d"><span></span></span><span class="odo__d"><span></span></span><span class="odo__d"><span></span></span><small>chats,<br>one ZIP</small></div>
-        <p class="lede rv">Claude and Gemini can import a summary of what your old assistant remembers about you, but not the conversations. Ferry Pro exports every ChatGPT or Claude chat as Markdown files in one run.</p>
+        <div class="odo" id="odo" role="img" aria-label="640 chats in one ZIP"><span class="odo__d"><span></span></span><span class="odo__d"><span></span></span><span class="odo__d"><span></span></span><small>chats, one ZIP</small></div>
+        <p class="lede rv">Claude and Gemini can import a summary of what your old assistant remembers about you, but not the conversations themselves. Ferry Pro exports every ChatGPT or Claude chat as Markdown files in one run.</p>
         <div class="perks rv"><span>Full-history ZIP</span><span>Bulk export</span><span>Context Packs</span><span>Encrypted auto-capture</span></div>
       </div>
-      <div class="manifest glass rv">
-        <b>CARGO MANIFEST</b> · chatgpt-history.zip
-        <div class="bar"><i id="manBar"></i></div>
-        ├── 2026-11-21 Postgres index tuning.md<br>
-        ├── 2026-11-19 Essay outline.md<br>
-        ├── 2026-11-18 React form validation.md<br>
-        │&nbsp;&nbsp;&nbsp;└── artifacts/useForm.ts<br>
-        ├── 2026-11-14 Trip budget.md<br>
-        ├── 2026-11-09 Physics lab writeup.md<br>
-        └── …
+      <div class="history__pic rv">
+        <img src="https://images.unsplash.com/photo-1494412552100-42e4e7a74ec6?auto=format&fit=crop&w=2000&q=72" srcset="https://images.unsplash.com/photo-1494412552100-42e4e7a74ec6?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1494412552100-42e4e7a74ec6?auto=format&fit=crop&w=1400&q=72 1400w, https://images.unsplash.com/photo-1494412552100-42e4e7a74ec6?auto=format&fit=crop&w=2000&q=72 2000w, https://images.unsplash.com/photo-1494412552100-42e4e7a74ec6?auto=format&fit=crop&w=2800&q=72 2800w" sizes="(max-width:1100px) 100vw, 640px" alt="Shipping containers stacked in rows at a port, seen from above" style="object-position:center" loading="lazy" decoding="async">
+        <div class="history__badge glass"><b>chatgpt-history.zip</b><br>├── Postgres index tuning.md<br>├── Essay outline.md<br>├── React form validation.md<br>└── …</div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="ports" data-depth="Ports of call">
+  <section class="sec" id="ports">
+    <div class="photo shade-full" aria-hidden="true" data-parallax><img src="https://images.unsplash.com/photo-1747115632855-ae7ae83acec2?auto=format&fit=crop&w=2000&q=72" srcset="https://images.unsplash.com/photo-1747115632855-ae7ae83acec2?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1747115632855-ae7ae83acec2?auto=format&fit=crop&w=1400&q=72 1400w, https://images.unsplash.com/photo-1747115632855-ae7ae83acec2?auto=format&fit=crop&w=2000&q=72 2000w, https://images.unsplash.com/photo-1747115632855-ae7ae83acec2?auto=format&fit=crop&w=2800&q=72 2800w" sizes="100vw" alt="" style="object-position:center" loading="lazy" decoding="async"></div>
     <div class="wrap">
-      <p class="kick rv">Chart</p>
-      <h2 class="mega rv">Ports of <span class="serif">call</span></h2>
+      <p class="kick rv">Ports of call</p>
+      <h2 class="mega rv">Lands where you <span class="serif">work</span></h2>
       <p class="lede rv">Ferry talks to each tool straight from your browser with your own keys. No Ferry server sits on the route.</p>
-      <div class="chart glass" id="chart">
-        <div class="chart__grid"></div>
-        <svg viewBox="0 0 1000 440" preserveAspectRatio="none" aria-hidden="true">
-          <path class="lane draw" d="M140 140 C330 60 470 70 560 90 S760 80 860 88"/>
-          <path class="lane draw" d="M140 140 C300 200 440 230 560 260"/>
-          <path class="lane draw" d="M140 300 C320 330 600 380 860 340"/>
-          <path class="lane draw" d="M140 300 C330 250 560 200 860 210"/>
-        </svg>
-        <div class="port port--src" style="left:14%;top:32%"><i></i><b>ChatGPT</b><span>Port of departure</span></div>
-        <div class="port port--src" style="left:14%;top:68%"><i></i><b>Claude</b><span>Port of departure</span></div>
-        <div class="port" style="left:86%;top:20%"><i></i><b>Obsidian</b><span>Into your vault</span></div>
-        <div class="port" style="left:56%;top:59%"><i></i><b>Files</b><span>.md, .json, PDF</span></div>
-        <div class="port" style="left:86%;top:48%"><i></i><b>Notion<em>PRO</em></b><span>Real blocks, not paste</span></div>
-        <div class="port" style="left:86%;top:77%"><i></i><b>GitHub<em>PRO</em></b><span>A private gist per chat</span></div>
-        <svg class="rose" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="#a7cdc8" stroke-width="1"/><path d="M50 4 L56 50 L50 96 L44 50Z" fill="#f0a73a"/><path d="M4 50 L50 44 L96 50 L50 56Z" fill="#a7cdc8"/></svg>
+      <div class="ports">
+        <div class="port glass rv"><span class="port__k">.md · .json · PDF</span><h3>Files</h3><p>Download, or copy to the clipboard in one click.</p></div>
+        <div class="port glass rv"><span class="port__k">vault note</span><h3>Obsidian</h3><p>Saved straight into your vault with front matter.</p></div>
+        <div class="port glass rv"><span class="port__k">native blocks</span><h3>Notion<em>PRO</em></h3><p>Real code blocks, lists and headings, not a pasted wall.</p></div>
+        <div class="port glass rv"><span class="port__k">private gist</span><h3>GitHub<em>PRO</em></h3><p>Each code block becomes its own file in a gist.</p></div>
+        <div class="port glass rv"><span class="port__k">one ZIP</span><h3>Full history<em>PRO</em></h3><p>Every ChatGPT or Claude chat, converted in one run.</p></div>
+        <div class="port glass rv"><span class="port__k">one file</span><h3>Context Pack<em>PRO</em></h3><p>Chosen chats merged to hand to a new assistant.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="hold" id="hold" data-depth="The hold">
+  <section class="sec" id="privacy">
+    <div class="photo shade-full" aria-hidden="true" data-parallax><img src="https://images.unsplash.com/photo-1687904673913-53383dbe85cb?auto=format&fit=crop&w=2000&q=72" srcset="https://images.unsplash.com/photo-1687904673913-53383dbe85cb?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1687904673913-53383dbe85cb?auto=format&fit=crop&w=1400&q=72 1400w, https://images.unsplash.com/photo-1687904673913-53383dbe85cb?auto=format&fit=crop&w=2000&q=72 2000w, https://images.unsplash.com/photo-1687904673913-53383dbe85cb?auto=format&fit=crop&w=2800&q=72 2800w" sizes="100vw" alt="" style="object-position:center" loading="lazy" decoding="async"></div>
     <div class="wrap">
-      <div class="hold__words">
-        <p class="hold__dark" aria-hidden="true">Your chats<br>never leave<br><span class="serif">the</span> ship</p>
-        <h2 class="hold__lit" id="holdLit">Your chats<br>never leave<br><span class="serif">the</span> ship</h2>
-      </div>
-      <div class="hold__facts">
-        <div class="glass"><b>Converted locally</b><p>Ferry reads the chat in your browser. We never receive its text.</p></div>
-        <div class="glass"><b>No account</b><p>No sign-up, no analytics, no tracking pixels.</p></div>
-        <div class="glass"><b>AES-256</b><p>Anything Ferry keeps on your device is encrypted at rest.</p></div>
-        <div class="glass"><b>Anonymous license</b><p>Pro is checked with Stripe using a random ID. <a href="/privacy/">Privacy policy</a></p></div>
+      <p class="kick rv">Privacy</p>
+      <h2 class="mega rv">Your chats never <span class="serif">leave the ship</span></h2>
+      <div class="facts">
+        <div class="glass rv"><b>Converted locally</b><p>Ferry reads the chat in your browser. We never receive its text.</p></div>
+        <div class="glass rv"><b>No account</b><p>No sign-up, no analytics, no tracking pixels.</p></div>
+        <div class="glass rv"><b>AES-256</b><p>Anything Ferry keeps on your device is encrypted at rest.</p></div>
+        <div class="glass rv"><b>Anonymous license</b><p>Pro is checked with Stripe using a random ID. <a href="/privacy/">Privacy policy</a></p></div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="fares" data-depth="Fares">
+  <section class="sec" id="fares">
     <div class="wrap">
-      <p class="kick rv">Ticket office</p>
+      <p class="kick rv">Pricing</p>
       <h2 class="mega rv">Choose your <span class="serif">fare</span></h2>
       <div class="passes">
-        <article class="pass tilt rv">
+        <article class="pass rv">
           <div class="pass__main">
             <div class="pass__route">DECK · ANY CHAT → MARKDOWN</div>
             <div class="pass__name">Free</div>
             <div class="pass__price">$0 <small>for good</small></div>
             <ul><li>Unlimited single-chat export</li><li>Markdown, JSON and PDF</li><li>Clipboard and Obsidian</li><li>Code, tables and math intact</li><li>Small Ferry footer on exports</li></ul>
-            <a class="btn btn--ink magnet" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-free" target="_blank" rel="noopener">Add Ferry free</a>
+            <a class="btn btn--ink" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-free" target="_blank" rel="noopener">Add Ferry free</a>
           </div>
           <div class="pass__stub"><span class="pass__route">ADMIT ONE</span><span class="big">DECK</span><div class="barcode"></div></div>
         </article>
-        <article class="pass pass--pro tilt rv">
+        <article class="pass pass--pro rv">
           <div class="pass__main">
             <div class="pass__route">CABIN · WHOLE HISTORY → ANY PORT</div>
             <div class="pass__name">Pro</div>
             <div class="pass__price">$19.99 <small>a year, or pay once</small></div>
             <div class="fares"><span>1 MO<b>$2.99</b></span><span>3 MO<b>$7.99</b></span><span>6 MO<b>$12.99</b></span><span class="best">1 YR<b>$19.99</b></span></div>
             <ul><li>Whole-history export to one ZIP</li><li>Bulk export and Context Packs</li><li>Code blocks saved as real files</li><li>Notion and GitHub Gist</li><li>No footer on exports</li></ul>
-            <a class="btn btn--ink magnet" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-pro" target="_blank" rel="noopener">Get Ferry Pro</a>
+            <a class="btn btn--ink" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-pro" target="_blank" rel="noopener">Get Ferry Pro</a>
             <p class="pass__note">Upgrade from the Ferry popup after installing. 1, 3 and 6 month passes don't renew. The yearly plan renews until you cancel. 30-day money-back guarantee.</p>
           </div>
           <div class="pass__stub"><span class="pass__route">CABIN</span><span class="big">PRO</span><div class="barcode"></div></div>
@@ -248,25 +207,26 @@ def fib(n):
     </div>
   </section>
 
-  <section class="sec" id="soundings" data-depth="Soundings">
+  <section class="sec" id="questions">
     <div class="wrap">
-      <p class="kick rv">Soundings</p>
-      <h2 class="mega rv">Questions from <span class="serif">the</span> deck</h2>
+      <p class="kick rv">Questions</p>
+      <h2 class="mega rv">Before you <span class="serif">board</span></h2>
       <div class="faq">
-        <div class="glass rv"><h3>Does Ferry send my conversations anywhere?</h3><p>No. Ferry converts chats in your browser and never receives them. A chat leaves your device only when you send it to Obsidian, Notion or GitHub with your own credentials.</p></div>
-        <div class="glass rv"><h3>Which browsers and systems work?</h3><p>Chrome, Edge, Brave and Arc, on Windows, macOS and Linux. Ferry supports ChatGPT and Claude.</p></div>
-        <div class="glass rv"><h3>Is Pro a subscription?</h3><p>Only the yearly plan, which renews and can be cancelled any time. The 1, 3 and 6 month passes end on their own. Files you exported stay yours.</p></div>
-        <div class="glass rv"><h3>Can I get a refund?</h3><p>Yes. Every purchase has a 30-day money-back guarantee. Email us and we refund it. See the <a href="/terms/">terms</a>.</p></div>
+        <div class="rv"><h3>Does Ferry send my conversations anywhere?</h3><p>No. Ferry converts chats in your browser and never receives them. A chat leaves your device only when you send it to Obsidian, Notion or GitHub with your own credentials.</p></div>
+        <div class="rv"><h3>Which browsers and systems work?</h3><p>Chrome, Edge, Brave and Arc, on Windows, macOS and Linux. Ferry supports ChatGPT and Claude.</p></div>
+        <div class="rv"><h3>Is Pro a subscription?</h3><p>Only the yearly plan, which renews and can be cancelled any time. The 1, 3 and 6 month passes end on their own. Files you exported stay yours.</p></div>
+        <div class="rv"><h3>Can I get a refund?</h3><p>Yes. Every purchase has a 30-day money-back guarantee. Email us and we refund it. See the <a href="/terms/">terms</a>.</p></div>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="foot" data-depth="Seafloor">
+<footer class="foot">
+  <div class="photo shade-bottom" aria-hidden="true" data-parallax><img src="https://images.unsplash.com/photo-1594521241308-8b53bb5b9f13?auto=format&fit=crop&w=2000&q=72" srcset="https://images.unsplash.com/photo-1594521241308-8b53bb5b9f13?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1594521241308-8b53bb5b9f13?auto=format&fit=crop&w=1400&q=72 1400w, https://images.unsplash.com/photo-1594521241308-8b53bb5b9f13?auto=format&fit=crop&w=2000&q=72 2000w, https://images.unsplash.com/photo-1594521241308-8b53bb5b9f13?auto=format&fit=crop&w=2800&q=72 2800w" sizes="100vw" alt="" style="object-position:center 70%" loading="lazy" decoding="async"></div>
   <div class="wrap">
     <div class="foot__close">
-      <h2 class="mega">Keep every chat<br>you've <span class="serif">ever</span> had</h2>
-      <a class="btn btn--beacon magnet" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-close" target="_blank" rel="noopener"><span class="dot"></span>Add to Chrome, free</a>
+      <h2 class="mega">Keep every chat you've <span class="serif">ever</span> had</h2>
+      <a class="btn btn--beacon" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-close" target="_blank" rel="noopener">Add to Chrome, free</a>
     </div>
     <div class="foot__row">
       <div><p class="foot__about">Ferry is a browser extension by Techcesories LLC, Georgia. Not affiliated with OpenAI or Anthropic.</p></div>
@@ -274,13 +234,11 @@ def fib(n):
       <div><h3>Ferry</h3><ul><li><a href="/#crossing">How it works</a></li><li><a href="/#fares">Pricing</a></li><li><a href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao/reviews" target="_blank" rel="noopener" data-goatcounter-click="cta-review">Leave a review</a></li></ul></div>
       <div><h3>Company</h3><ul><li><a href="mailto:contactus@techcesories.com">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/cookies/">Cookies</a></li></ul></div>
     </div>
+    <div class="foot__legal"><span>© 2026 Techcesories LLC · Photographs via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span><span>ChatGPT is a trademark of OpenAI. Claude is a trademark of Anthropic.</span></div>
   </div>
-  <p class="foot__word" aria-hidden="true">Ferry</p>
-  <div class="wrap"><div class="foot__legal"><span>© 2026 Techcesories LLC</span><span>ChatGPT is a trademark of OpenAI. Claude is a trademark of Anthropic.</span></div></div>
 </footer>
 
-<script src="/home.js" defer></script>
-<script src="/sea.js" defer></script>
+<script src="home.js" defer></script>
 <script data-goatcounter="https://techcesories.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
