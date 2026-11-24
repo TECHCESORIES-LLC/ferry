@@ -1,11 +1,11 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ferry Privacy</title>
-<meta name="description" content="How Ferry handles your data: conversations are processed locally and never sent to our servers. Anonymous licensing, encrypted local storage, no tracking, no ads." />
+<meta name="description" content="How Ferry handles your data: chats are converted in your browser and never sent to our servers. One licensing server, a random install ID, no tracking, no ads." />
 <link rel="canonical" href="https://ferry.techcesories.com/privacy/" />
 <meta name="theme-color" content="#051a1f" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ferry" />
 <meta property="og:title" content="Ferry Privacy" />
-<meta property="og:description" content="How Ferry handles your data: conversations are processed locally and never sent to our servers. Anonymous licensing, encrypted local storage, no tracking, no ads." />
+<meta property="og:description" content="How Ferry handles your data: chats are converted in your browser and never sent to our servers. One licensing server, a random install ID, no tracking, no ads." />
 <meta property="og:url" content="https://ferry.techcesories.com/privacy/" />
 <meta property="og:image" content="https://ferry.techcesories.com/og.png" />
 <meta property="og:image:width" content="1200" />
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Ferry Privacy" />
-<meta name="twitter:description" content="How Ferry handles your data: conversations are processed locally and never sent to our servers. Anonymous licensing, encrypted local storage, no tracking, no ads." />
+<meta name="twitter:description" content="How Ferry handles your data: chats are converted in your browser and never sent to our servers. One licensing server, a random install ID, no tracking, no ads." />
 <meta name="twitter:image" content="https://ferry.techcesories.com/og.png" />
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Techcesories LLC","url":"https://ferry.techcesories.com/","email":"contactus@techcesories.com"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ferry","item":"https://ferry.techcesories.com/"},{"@type":"ListItem","position":2,"name":"Privacy Policy","item":"https://ferry.techcesories.com/privacy/"}]}</script><link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -42,19 +42,20 @@
 </header>
 <main id="top" class="article"><div class="wrap"><div class="sheet glass">
 <h1>Ferry Privacy Policy</h1>
-<p><strong>Last updated: June 24, 2026</strong> ·
+<p><strong>Last updated: November 24, 2026</strong> (Ferry 0.10.0) ·
 <strong>Publisher:</strong> Techcesories LLC (Georgia, USA) · <strong>Product:</strong> Ferry browser extension
 <strong>Contact:</strong> <a href="mailto:contactus@techcesories.com">contactus@techcesories.com</a></p>
-<p>Ferry is a browser extension that exports your ChatGPT and Claude conversations to Markdown files you save yourself. This policy explains exactly what Ferry does and does not do with data. We wrote it to be true, not reassuring. Under Georgia's Fair Business Practices Act and the FTC Act, a privacy claim that isn't accurate is itself a violation.</p>
+<p>Ferry is a browser extension that exports your ChatGPT, Claude and Gemini conversations to Markdown files you save yourself. This policy explains exactly what Ferry does and does not do with data. We wrote it to be true, not reassuring. Under Georgia's Fair Business Practices Act and the FTC Act, a privacy claim that isn't accurate is itself a violation.</p>
 <h2>The short version</h2>
 <ul>
-<li>Ferry runs on your device. Your conversations are processed locally and <strong>never touch our servers</strong>.</li>
-<li>When you click <strong>Export</strong>, Ferry reads the conversation open in the current tab, converts it to Markdown, and hands the result to you (download, clipboard, or your Obsidian vault). <strong>That content is never sent to us.</strong></li>
+<li>Ferry converts your conversations on your device. <strong>Our servers never receive conversation content.</strong> Ferry has one server, a licensing service, and it only sees the items listed below.</li>
+<li>Ferry reads a page only when you click it. When you click the Ferry icon and choose an export, it reads the conversation open in the current tab, converts it to Markdown, and hands the result to you (download, clipboard, or your Obsidian vault). <strong>That content is not sent to us.</strong></li>
+<li><strong>Gemini (optional):</strong> Gemini support is off until you click <strong>Allow Gemini</strong> and approve Chrome's prompt for gemini.google.com. After that, Ferry reads a Gemini chat the same way: only the one you have open, only when you click Ferry. You can remove this access at any time in Chrome's extension settings.</li>
 <li><strong>Pro licensing:</strong> to check whether you have an active subscription, Ferry sends an <strong>anonymous install ID</strong> (a random identifier, no name, no email) to our licensing service, which verifies it against Stripe. No conversation content is ever involved. Payment details go only to Stripe. The install ID is also mirrored through <strong>Chrome's own built-in sync</strong> (still anonymous) so your Pro access follows you across your signed-in Chrome browsers.</li>
 <li><strong>Restoring Pro (optional):</strong> if you reinstall, switch browsers, or move to a new device, you can restore Pro by entering the email you paid with. Our licensing service <strong>emails a 6-digit one-time code to that address</strong>; you enter it to prove the inbox is yours, and it re-links your purchase to your new install. The email is used <strong>only</strong> for that recovery and is <strong>not stored</strong> by us. No card details are ever involved.</li>
-<li><strong>Bulk migration (Pro):</strong> when you start a migration, Ferry uses your existing logged-in session to read your conversation list and conversations from ChatGPT's or Claude's own API, <strong>in your browser</strong>, converts them to Markdown locally, and packages them into a ZIP you download. This data is processed on your device and <strong>never sent to us</strong>. You choose which conversations to include.</li>
+<li><strong>Bulk migration (Pro):</strong> when you start a migration, Ferry uses your existing logged-in session to read your conversation list and conversations from ChatGPT's or Claude's own API, <strong>in your browser</strong>, converts them to Markdown locally, and packages them into a ZIP you download. This data is processed on your device and <strong>not sent to us</strong>. You choose which conversations to include.</li>
 <li><strong>Optional integrations:</strong> if <em>you</em> configure Notion or GitHub with your own access token, Ferry sends the conversation you choose <strong>directly from your browser to that service, using your credentials</strong>, at your request. We never receive or relay it.</li>
-<li>We do <strong>not</strong> collect analytics, track your browsing, build profiles, serve ads, or sell data. We never will.</li>
+<li>The extension does <strong>not</strong> collect analytics, track your browsing, build profiles, serve ads, or sell data.</li>
 </ul>
 <h2>What data Ferry handles, and why</h2>
 <p>Using Google's data-category vocabulary:</p>
@@ -66,13 +67,13 @@
 <tr>
 <td><strong>Website content / personal communications</strong></td>
 <td>The text of the conversation you choose to export</td>
-<td>Processed in memory on your device, only when you click Export. Written only to the destination you pick. <strong>Not transmitted to us.</strong></td>
+<td>Read only from the tab you click Ferry on (ChatGPT, Claude, or Gemini once you allow it). Processed in memory on your device. Written only to the destination you pick. <strong>Not transmitted to us.</strong></td>
 <td>To produce the Markdown export, the extension's single purpose</td>
 </tr>
 <tr>
-<td><strong>User content stored locally</strong> (Pro: bulk queue / auto-sync)</td>
+<td><strong>User content stored locally</strong> (Pro: bulk queue / auto-archive)</td>
 <td>Conversations you queue or auto-archive</td>
-<td>Stored on your device only, <strong>encrypted at rest (AES-GCM-256)</strong>. Not transmitted to us.</td>
+<td>Stored locally in your browser (Chrome extension storage), never uploaded. Not transmitted to us.</td>
 <td>To let you batch-export or auto-archive</td>
 </tr>
 <tr>
@@ -102,17 +103,30 @@
 <tr>
 <td><strong>Integration tokens</strong> (Pro)</td>
 <td>Notion / GitHub access tokens you enter</td>
-<td>Stored locally, <strong>encrypted at rest (AES-GCM-256)</strong>. Used only to call those services at your request.</td>
+<td>Stored locally in your browser, never uploaded to us. Sent only to api.notion.com or api.github.com when you export.</td>
 <td>To run the integrations you enable</td>
 </tr>
 </tbody>
 </table>
-<p>That is the complete list. Ferry requests only the permissions these features need: reading conversations on chatgpt.com / chat.openai.com / claude.ai, local storage, and contacting our licensing Worker (with an anonymous ID, plus a billing email only if you use Restore Pro) for Pro status.</p>
+<p>That is the complete list.</p>
+<h2>Permissions Ferry asks for, and why</h2>
+<table>
+<thead><tr><th>Permission</th><th>What Ferry does with it</th></tr></thead>
+<tbody>
+<tr><td><strong>activeTab</strong></td><td>Gives Ferry access to the current tab only at the moment you click the Ferry icon, so it can read the chat you chose. It ends when you leave or close the tab.</td></tr>
+<tr><td><strong>scripting</strong></td><td>Lets Ferry run its reader in that tab, after your click, to collect the conversation from the page. Ferry runs only its own packaged code; it loads no remote code.</td></tr>
+<tr><td><strong>storage</strong></td><td>Keeps your settings, integration keys and Pro status in your browser.</td></tr>
+<tr><td><strong>chatgpt.com, chat.openai.com, claude.ai</strong></td><td>Reads the open conversation, and for Pro full-history export, your conversation list, using your existing login.</td></tr>
+<tr><td><strong>gemini.google.com</strong> (optional)</td><td>Requested only when you click Allow Gemini. Reads the Gemini chat you have open when you click Ferry.</td></tr>
+<tr><td><strong>ferry-api.techcesories.workers.dev</strong></td><td>Our licensing service. Receives a random install ID, and your billing email only if you use Restore Pro. Never conversation content.</td></tr>
+<tr><td><strong>api.notion.com, api.github.com</strong></td><td>Used only if you set up Notion or GitHub (Pro). The chat goes from your browser to your own account with your own key.</td></tr>
+</tbody>
+</table>
 <h2>Who we share with</h2>
 <p><strong>Stripe</strong>, our payment processor, and only for Pro: Stripe handles checkout and holds payment data (we never see card details). Our own licensing service (a Cloudflare Worker) receives only the anonymous install ID to verify your status with Stripe. It stores nothing and never sees your conversations. If you use <strong>Restore Pro</strong>, that service also receives the billing email you enter, solely to send you a one-time code and (once you enter it) look up your purchase in Stripe and re-link it to your new install; it is not stored by us and never reaches your conversations. That one code email is delivered through <strong>Resend</strong>, our email provider, who process the send on our behalf and receive nothing beyond the address and the code. No card details are involved.</p>
 <p>If you enable an integration, the conversation you choose is sent <strong>by your browser, directly to the service you picked</strong>: <strong>Notion</strong> (api.notion.com) or <strong>GitHub</strong> (api.github.com), authenticated with a token <em>you</em> create and store locally in Ferry. This is a transfer you initiate, to your own account; we are not in the path and never receive the content or your tokens. We do not sell or "share" personal data for cross-context behavioral advertising.</p>
 <h2>Security</h2>
-<p>Conversation content is processed locally and not transmitted to us, which removes the largest risk entirely. There is no central store of your chats to breach. Any conversation content Ferry persists locally (Pro queue/auto-sync) is encrypted at rest with AES-GCM-256. Communication with our payment processors occurs over HTTPS. The extension loads no remote code and includes a strict Content Security Policy. No system is perfectly secure, and we don't claim otherwise; see SECURITY.md for our threat model and how to report a vulnerability.</p>
+<p>Conversation content is processed locally and not transmitted to us, which removes the largest risk entirely. There is no central store of your chats to breach. Anything Ferry keeps (settings, keys, queued or archived chats) is stored in your browser's extension storage on your device and never uploaded to us. Like other extension data, it is readable by anyone with access to your computer profile, so protect your device and Chrome profile as you would for saved passwords. Communication with our payment processors occurs over HTTPS. The extension loads no remote code and includes a strict Content Security Policy. No system is perfectly secure, and we don't claim otherwise. To report a vulnerability, email <a href="mailto:contactus@techcesories.com">contactus@techcesories.com</a>.</p>
 <h2>Data retention and your choices</h2>
 <ul>
 <li>Exported files live wherever you saved them, under your control, not ours.</li>
@@ -126,9 +140,10 @@
 <h2>Limited Use disclosure (Chrome Web Store)</h2>
 <p>Ferry's use of information received from Chrome APIs adheres to the <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Chrome Web Store User Data Policy</a>, including the Limited Use requirements. We use the data Ferry accesses only to provide the user-facing export feature; we do not transfer it except to provide that feature or as required by law, and we do not use it for advertising, profiling, or any purpose unrelated to the export feature.</p>
 <h2>This website</h2>
-<p>This website uses GoatCounter, a privacy-first analytics tool, to count page views in aggregate. It sets no cookies, stores no personal information, and does not track you across sites. If you sign up to be notified at launch, the email address you enter is sent to our inbox and used once, to tell you Ferry is live. It is not added to a marketing list, shared, or sold, and you can ask us to delete it at any time via contactus@techcesories.com.</p>
+<p>This website uses GoatCounter, a privacy-first analytics tool, to count page views in aggregate. It sets no cookies, stores no personal information, and does not track you across sites.</p>
 <h2>Changes</h2>
 <p>We'll update this page and its "last updated" date for any material change, and describe what changed.</p>
+<p><strong>November 24, 2026 (0.10.0):</strong> added optional Gemini support and the activeTab and scripting permissions; listed every permission; corrected how locally stored data is described (stored in your browser, not described as encrypted).</p>
 </div></div></main>
 <footer class="foot">
     <div class="wrap">
@@ -137,12 +152,12 @@
       <a class="btn btn--beacon" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-close" target="_blank" rel="noopener">Add to Chrome, free</a>
     </div>
     <div class="foot__row">
-      <div><p class="foot__about">Ferry is a browser extension by Techcesories LLC, Georgia. Not affiliated with OpenAI or Anthropic.</p></div>
-      <div><h3>Guides</h3><ul><li><a href="/export-chatgpt-to-markdown/">Export ChatGPT to Markdown</a></li><li><a href="/export-claude-to-obsidian/">Export Claude to Obsidian</a></li><li><a href="/chatgpt-claude-to-notion/">Save chats to Notion</a></li></ul></div>
+      <div><p class="foot__about">Ferry is a browser extension by Techcesories LLC, Georgia. Not affiliated with OpenAI, Anthropic or Google.</p></div>
+      <div><h3>Guides</h3><ul><li><a href="/export-chatgpt-to-markdown/">Export ChatGPT to Markdown</a></li><li><a href="/export-claude-to-obsidian/">Export Claude to Obsidian</a></li><li><a href="/chatgpt-claude-to-notion/">Save chats to Notion</a></li><li><a href="/export-gemini-chats-to-markdown/">Export Gemini to Markdown</a></li></ul></div>
       <div><h3>Ferry</h3><ul><li><a href="/#crossing">How it works</a></li><li><a href="/#fares">Pricing</a></li><li><a href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao/reviews" target="_blank" rel="noopener" data-goatcounter-click="cta-review">Leave a review</a></li></ul></div>
       <div><h3>Company</h3><ul><li><a href="mailto:contactus@techcesories.com">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/cookies/">Cookies</a></li></ul></div>
     </div>
-    <div class="foot__legal"><span>© 2026 Techcesories LLC · Photographs via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span><span>ChatGPT is a trademark of OpenAI. Claude is a trademark of Anthropic.</span></div>
+    <div class="foot__legal"><span>© 2026 Techcesories LLC · Photographs via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span><span>ChatGPT is a trademark of OpenAI. Claude is a trademark of Anthropic. Gemini is a trademark of Google LLC.</span></div>
   </div>
 </footer>
 <script src="/home.js" defer></script>

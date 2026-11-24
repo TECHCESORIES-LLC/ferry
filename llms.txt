@@ -1,28 +1,31 @@
 # Ferry
 
-> Ferry is a Manifest V3 browser extension that exports and migrates ChatGPT and Claude conversations into clean, re-importable Markdown and into knowledge bases such as Obsidian, Notion, and GitHub. It runs locally in your browser; conversation content never touches Ferry's servers.
+> Ferry is a Manifest V3 browser extension that exports ChatGPT, Claude and Gemini conversations to clean Markdown and into Obsidian, Notion and GitHub. Conversion runs locally in the browser; Ferry's servers never receive conversation content.
 
-Ferry is made by Techcesories LLC (Georgia, USA). The free tier exports the conversation you are viewing to Markdown, JSON, PDF, the clipboard, or an Obsidian vault. Ferry Pro adds bulk migration of your entire history, multi-chat export, code blocks and artifacts saved as real files, and direct sync to Notion and GitHub using your own credentials.
+Ferry is made by Techcesories LLC (Georgia, USA). Current version: 0.10.0. The free tier exports the conversation you are viewing to Markdown, JSON, PDF, the clipboard, or an Obsidian vault. Gemini support is optional: the user clicks "Allow Gemini" and approves access to gemini.google.com. Ferry Pro adds a full-history export of every ChatGPT or Claude chat to one ZIP, multi-chat export, Context Packs, code blocks saved as real files, and direct export to Notion and GitHub using the user's own keys.
 
-Pricing is pay-once prepaid tiers plus an optional auto-renewing annual plan: 1 month $2.99, 3 months $7.99, 6 months $12.99, and 1 year $19.99. Every purchase is backed by a 30-day money-back guarantee.
+Pricing: free tier, then Pro at $19.99 per year (auto-renews, cancel any time) or one-time passes of 1 month $2.99, 3 months $7.99 and 6 months $12.99. Every purchase has a 30-day money-back guarantee.
+
+Why people use it: when switching AI assistants. Claude's import brings over a memory summary, not conversations. Gemini can import full chats from ChatGPT and Claude but can't export them in a portable format. Ferry exports chats as Markdown files that any assistant or notes app can read.
 
 ## Guides
-- [Export ChatGPT to Markdown](https://ferry.techcesories.com/export-chatgpt-to-markdown/): step-by-step guide to exporting ChatGPT conversations as clean Markdown with code fences, tables, and formatting preserved.
-- [Export Claude to Obsidian](https://ferry.techcesories.com/export-claude-to-obsidian/): how to move Claude.ai chats into an Obsidian vault as Markdown notes.
-- [Save ChatGPT and Claude to Notion](https://ferry.techcesories.com/chatgpt-claude-to-notion/): how to send AI conversations straight into Notion pages.
+- [Export ChatGPT to Markdown](https://ferry.techcesories.com/export-chatgpt-to-markdown/): OpenAI's data export with a conversion script, versus one-click export.
+- [Export Claude to Obsidian](https://ferry.techcesories.com/export-claude-to-obsidian/): copy and paste, Claude's data export, or one click into an Obsidian vault.
+- [Save ChatGPT and Claude to Notion](https://ferry.techcesories.com/chatgpt-claude-to-notion/): paste, Markdown import, or direct to a Notion page with an integration key.
+- [Export Gemini chats to Markdown](https://ferry.techcesories.com/export-gemini-chats-to-markdown/): Google Takeout (My Activity, Gemini Apps) and its limits, versus one-click export.
 
 ## Policies
-- [Privacy Policy](https://ferry.techcesories.com/privacy/): local-first design, no conversation data collected, anonymous licensing, encrypted local storage.
+- [Privacy Policy](https://ferry.techcesories.com/privacy/): local conversion, every permission explained, one licensing server that receives a random install ID (and an email only for Restore Pro).
 - [Terms of Service](https://ferry.techcesories.com/terms/): licensing, billing, the 30-day refund policy, and Georgia governing law.
 
 ## Key facts
-- Product type: browser extension (Manifest V3)
-- Install: Chrome Web Store — https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao
-- Browsers: Chrome, Edge, Brave, Arc
+- Product type: browser extension (Manifest V3), version 0.10.0
+- Install: Chrome Web Store, https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao
+- Browsers: Chrome, Edge, Brave, Arc. Not yet available for Firefox or Safari.
 - Operating systems: Windows, macOS, Linux
-- Supported sources: ChatGPT (OpenAI) and Claude (Anthropic)
+- Supported sources: ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google, optional permission)
 - Export formats: Markdown, JSON, PDF
-- Destinations: local files, Obsidian, Notion, GitHub
-- Privacy: conversations are processed locally and are never sent to Ferry's servers; Pro licensing uses only an anonymous ID
+- Destinations: local files, clipboard, Obsidian, Notion, GitHub
+- Data: conversations are converted in the browser and not sent to Ferry. Settings and keys are stored locally in the browser, never uploaded. The only Ferry server is a license check (ferry-api.techcesories.workers.dev).
 - Affiliation: independent product, not affiliated with OpenAI, Anthropic, Google, Microsoft, or Mozilla
 - Contact: contactus@techcesories.com

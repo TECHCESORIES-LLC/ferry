@@ -1,0 +1,157 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Export Gemini Chats to Markdown (2026) | Ferry</title>
+<meta name="description" content="Export Google Gemini conversations: the Google Takeout method (and why your export may be empty), plus one-click Markdown export with Ferry." />
+<link rel="canonical" href="https://ferry.techcesories.com/export-gemini-chats-to-markdown/" />
+<meta name="theme-color" content="#051a1f" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Ferry" />
+<meta property="og:title" content="How to Export Gemini Chats to Markdown (2026) | Ferry" />
+<meta property="og:description" content="Export Google Gemini conversations: the Google Takeout method (and why your export may be empty), plus one-click Markdown export with Ferry." />
+<meta property="og:url" content="https://ferry.techcesories.com/export-gemini-chats-to-markdown/" />
+<meta property="og:image" content="https://ferry.techcesories.com/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to Export Gemini Chats to Markdown (2026) | Ferry" />
+<meta name="twitter:description" content="Export Google Gemini conversations: the Google Takeout method (and why your export may be empty), plus one-click Markdown export with Ferry." />
+<meta name="twitter:image" content="https://ferry.techcesories.com/og.png" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to export Gemini chats to Markdown", "description": "Export Google Gemini conversations: the Google Takeout method (and why your export may be empty), plus one-click Markdown export with Ferry.", "url": "https://ferry.techcesories.com/export-gemini-chats-to-markdown/", "image": "https://ferry.techcesories.com/og.png", "dateModified": "2026-11-24", "author": {"@type": "Organization", "name": "Techcesories LLC", "url": "https://ferry.techcesories.com/"}, "publisher": {"@type": "Organization", "name": "Techcesories LLC", "url": "https://ferry.techcesories.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ferry", "item": "https://ferry.techcesories.com/"}, {"@type": "ListItem", "position": 2, "name": "Gemini to Markdown", "item": "https://ferry.techcesories.com/export-gemini-chats-to-markdown/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is my Gemini Takeout export empty?", "acceptedAnswer": {"@type": "Answer", "text": "Most often because only \"Gemini\" was ticked, which exports Gems, not chats. Select My Activity and filter it to Gemini Apps instead. Also check you used the same Google account as Gemini, and that Gemini Apps Activity was on."}}, {"@type": "Question", "name": "Can Gemini export my chats to ChatGPT or Claude?", "acceptedAnswer": {"@type": "Answer", "text": "Not directly. Gemini can import chats from ChatGPT and Claude, but its own Takeout export is an activity log that those tools can't import. A Markdown file is the most portable format to carry a chat between assistants."}}, {"@type": "Question", "name": "Why does Ferry ask for Gemini permission separately?", "acceptedAnswer": {"@type": "Answer", "text": "Gemini support is optional. Ferry only gets access to gemini.google.com after you click Allow Gemini and approve it in Chrome, and you can revoke it at any time."}}, {"@type": "Question", "name": "Does Ferry export my whole Gemini history at once?", "acceptedAnswer": {"@type": "Answer", "text": "No. Ferry exports the Gemini chat you have open. Use Google Takeout if you need a full archive of every Gemini chat."}}, {"@type": "Question", "name": "Is my Gemini chat sent to Ferry?", "acceptedAnswer": {"@type": "Answer", "text": "No. Ferry converts the chat in your browser and saves the file on your device."}}]}</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.unsplash.com" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/site.css" />
+</head><body>
+<a class="skip" href="#top">Skip to content</a>
+<div class="page-bg" aria-hidden="true"><img src="https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=2000&q=72" srcset="https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=1400&q=72 1400w, https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=2000&q=72 2000w, https://images.unsplash.com/photo-1762838896748-12aba8c2a7b8?auto=format&fit=crop&w=2800&q=72 2800w" sizes="100vw" alt="" style="object-position:center" decoding="async"></div>
+<header class="top" id="topbar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Ferry home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#f0a73a"/><path d="M7 19h18l-2.6 5.2a2 2 0 0 1-1.8 1.1H11.4a2 2 0 0 1-1.8-1.1z" fill="#0a1c1f"/><path d="M11 17V11h7l3 6z" fill="#0a1c1f"/><path d="M14 9V7h3v2" stroke="#0a1c1f" stroke-width="1.6" fill="none"/></svg>
+      Ferry
+    </a>
+    <nav aria-label="Main">
+      <a href="/#crossing">How it works</a>
+      <a href="/#try">Try it</a>
+      <a href="/#fares">Pricing</a>
+      <a href="/#questions">Questions</a>
+      <a class="btn btn--beacon btn--sm" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-nav" target="_blank" rel="noopener">Add to Chrome</a>
+    </nav>
+  </div>
+</header>
+<main id="top" class="article"><div class="wrap"><div class="sheet glass">
+<p class="crumb"><a href="/">Ferry</a> / Guides / Gemini to Markdown</p>
+<h1>How to export Gemini chats to Markdown</h1>
+<p class="updated">Updated November 24, 2026</p>
+
+<p class="lead">Gemini makes it easy to bring chats <i>in</i>: it can import your ChatGPT and Claude history. Getting your own Gemini conversations <i>out</i> in a usable form is harder. Here is Google's official route through Takeout, where it falls short, and how to save a Gemini chat as Markdown in one click instead.</p>
+
+<h2>Method 1: Google Takeout</h2>
+<p>Google Takeout is the official way to download your Gemini chats in bulk. There's one catch that trips up most people: your conversations are not under the item called "Gemini". That item only holds your Gems. Chats live under My Activity.</p>
+<ol>
+<li class="step">Go to <code>takeout.google.com</code>, signed in with the account you use for Gemini.</li>
+<li class="step">Under <b>Select data to include</b>, click <b>Deselect all</b>.</li>
+<li class="step">Scroll to <b>My Activity</b> and tick it.</li>
+<li class="step">Click <b>All activity data included</b>, then <b>Deselect all</b> in the pop-up, tick only <b>Gemini Apps</b>, and click <b>OK</b>.</li>
+<li class="step">Optional but useful: click <b>Multiple formats</b> and change Activity records from HTML to <b>JSON</b>.</li>
+<li class="step">Click <b>Next step</b>, pick ZIP and a delivery method, then <b>Create export</b>. Google emails you when it's ready.</li>
+</ol>
+
+<h3>What you get, and why it's painful</h3>
+<p>Takeout gives you an activity log, not a set of conversations. Each prompt and response is an entry in one long <code>MyActivity.html</code> or <code>MyActivity.json</code>, ordered by time. A JSON entry looks roughly like this:</p>
+<pre class="code" data-lang="json"><code>{
+  &quot;header&quot;: &quot;Gemini Apps&quot;,
+  &quot;title&quot;: &quot;Prompted Write a memoized Fibonacci in Python&quot;,
+  &quot;time&quot;: &quot;2026-11-20T18:42:07.311Z&quot;,
+  &quot;safeHtmlItem&quot;: [{ &quot;html&quot;: &quot;&lt;p&gt;Here is a version using...&lt;/p&gt;&quot; }]
+}</code></pre>
+<ul>
+<li><b>No conversation threads.</b> Prompts from different chats are interleaved by time, so you have to piece each conversation back together.</li>
+<li><b>Responses are HTML,</b> not Markdown. Code blocks and tables need converting before they're useful in notes.</li>
+<li><b>It's slow.</b> Exports can take hours or longer, and you request the whole archive every time.</li>
+<li><b>It only covers saved activity.</b> Chats from while Gemini Apps Activity was off, temporary chats and deleted chats are not included.</li>
+<li><b>It's not portable.</b> ChatGPT and Claude can't import this file, so it's a backup, not a way to move.</li>
+</ul>
+<p>If you only need the content of the entries, a short script turns the JSON into one Markdown file per day:</p>
+<pre class="code" data-lang="python"><code>import json, collections, html, re
+
+items = json.load(open(&quot;MyActivity.json&quot;))
+by_day = collections.defaultdict(list)
+for it in items:
+    prompt = it.get(&quot;title&quot;, &quot;&quot;).removeprefix(&quot;Prompted &quot;)
+    reply = &quot; &quot;.join(h[&quot;html&quot;] for h in it.get(&quot;safeHtmlItem&quot;, []))
+    reply = html.unescape(re.sub(r&quot;&lt;[^&gt;]+&gt;&quot;, &quot;&quot;, reply))   # crude: drops formatting
+    by_day[it[&quot;time&quot;][:10]].append(f&quot;## You\n{prompt}\n\n## Gemini\n{reply}\n&quot;)
+
+for day, entries in sorted(by_day.items()):
+    open(f&quot;gemini-{day}.md&quot;, &quot;w&quot;).write(&quot;\n&quot;.join(reversed(entries)))</code></pre>
+<p>Note the comment: stripping the HTML loses code blocks and tables. Doing it properly means writing a real HTML-to-Markdown converter.</p>
+
+<h2>Method 2: Gemini's Export to Docs</h2>
+<p>For a single response, Gemini's <b>Share &amp; export</b> menu can send it to Google Docs. That's handy for prose, but it covers one response at a time, and you end up with a Google Doc, not a Markdown file.</p>
+
+<h2>Method 3: Ferry, the open Gemini chat to Markdown</h2>
+<p>Ferry 0.10.0 adds Gemini. Gemini access is opt-in, so Ferry asks for it only if you use it.</p>
+<ol>
+<li class="step"><b>Install Ferry</b> from the Chrome Web Store. It also works in Edge, Brave and Arc.</li>
+<li class="step"><b>Open a chat</b> on <code>gemini.google.com</code> and click the Ferry icon.</li>
+<li class="step">The first time, click <b>Allow Gemini</b>. Chrome asks you to approve access to gemini.google.com. You can remove it at any time in Chrome's extension settings.</li>
+<li class="step"><b>Pick an output:</b> download <code>.md</code>, copy to the clipboard, or send it to Obsidian.</li>
+</ol>
+<p>You get the whole thread, in order, as one file:</p>
+<pre class="code" data-lang="markdown"><code>---
+title: Memoized Fibonacci
+source: Gemini
+---
+
+## You
+Write a memoized Fibonacci in Python.
+
+## Gemini
+```python
+from functools import lru_cache
+
+@lru_cache
+def fib(n):
+    return n if n &lt; 2 else fib(n - 1) + fib(n - 2)
+```</code></pre>
+<p>Ferry reads the chat only when you click it, converts it in your browser, and saves the file on your computer.</p>
+
+<h2>Takeout or Ferry?</h2>
+<table>
+<tr><th></th><th>Google Takeout</th><th>Ferry</th></tr>
+<tr><td>Scope</td><td>All saved Gemini activity</td><td>The chat you have open</td></tr>
+<tr><td>Speed</td><td>Hours or longer, by email</td><td>Seconds</td></tr>
+<tr><td>Format</td><td>Activity log, HTML or JSON</td><td>One Markdown file per chat</td></tr>
+<tr><td>Threads kept together</td><td>No</td><td>Yes</td></tr>
+<tr><td>Best for</td><td>A complete backup</td><td>Chats you want to reuse</td></tr>
+</table>
+
+<h2>Common questions</h2>
+<details><summary>Why is my Gemini Takeout export empty?</summary><p>Most often because only "Gemini" was ticked, which exports Gems, not chats. Select My Activity and filter it to Gemini Apps instead. Also check you used the same Google account as Gemini, and that Gemini Apps Activity was on.</p></details><details><summary>Can Gemini export my chats to ChatGPT or Claude?</summary><p>Not directly. Gemini can import chats from ChatGPT and Claude, but its own Takeout export is an activity log that those tools can't import. A Markdown file is the most portable format to carry a chat between assistants.</p></details><details><summary>Why does Ferry ask for Gemini permission separately?</summary><p>Gemini support is optional. Ferry only gets access to gemini.google.com after you click Allow Gemini and approve it in Chrome, and you can revoke it at any time.</p></details><details><summary>Does Ferry export my whole Gemini history at once?</summary><p>No. Ferry exports the Gemini chat you have open. Use Google Takeout if you need a full archive of every Gemini chat.</p></details><details><summary>Is my Gemini chat sent to Ferry?</summary><p>No. Ferry converts the chat in your browser and saves the file on your device.</p></details>
+<p class="cta"><a class="btn btn--beacon" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-install" target="_blank" rel="noopener">Add Ferry to Chrome, free</a></p>
+<p class="related">More guides: <a href="/export-chatgpt-to-markdown/">Export ChatGPT to Markdown</a> · <a href="/export-claude-to-obsidian/">Export Claude to Obsidian</a> · <a href="/chatgpt-claude-to-notion/">Save ChatGPT and Claude chats to Notion</a></p>
+</div></div></main>
+<footer class="foot">
+    <div class="wrap">
+    <div class="foot__close">
+      <h2 class="mega">Keep every chat you've ever had</h2>
+      <a class="btn btn--beacon" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-close" target="_blank" rel="noopener">Add to Chrome, free</a>
+    </div>
+    <div class="foot__row">
+      <div><p class="foot__about">Ferry is a browser extension by Techcesories LLC, Georgia. Not affiliated with OpenAI, Anthropic or Google.</p></div>
+      <div><h3>Guides</h3><ul><li><a href="/export-chatgpt-to-markdown/">Export ChatGPT to Markdown</a></li><li><a href="/export-claude-to-obsidian/">Export Claude to Obsidian</a></li><li><a href="/chatgpt-claude-to-notion/">Save chats to Notion</a></li><li><a href="/export-gemini-chats-to-markdown/">Export Gemini to Markdown</a></li></ul></div>
+      <div><h3>Ferry</h3><ul><li><a href="/#crossing">How it works</a></li><li><a href="/#fares">Pricing</a></li><li><a href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao/reviews" target="_blank" rel="noopener" data-goatcounter-click="cta-review">Leave a review</a></li></ul></div>
+      <div><h3>Company</h3><ul><li><a href="mailto:contactus@techcesories.com">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/cookies/">Cookies</a></li></ul></div>
+    </div>
+    <div class="foot__legal"><span>© 2026 Techcesories LLC · Photographs via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span><span>ChatGPT is a trademark of OpenAI. Claude is a trademark of Anthropic. Gemini is a trademark of Google LLC.</span></div>
+  </div>
+</footer>
+<script src="/home.js" defer></script>
+<script data-goatcounter="https://techcesories.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

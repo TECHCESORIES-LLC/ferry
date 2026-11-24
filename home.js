@@ -95,16 +95,11 @@
   addEventListener('resize', frame); frame();
 
   // Try it: one chat, four outputs.
-  var pre = $('#outPre');
+  var pre = $('.out__pre');
   if (pre) {
-    var outs = {
-      md: { n: 'memoized-fibonacci.md', t: '<span class="c">---\ntitle: Memoized Fibonacci\nsource: ChatGPT\n---</span>\n\n<span class="h">## You</span>\nWrite a memoized Fibonacci in Python…\n\n<span class="h">## ChatGPT</span>\nHere is a version using **lru_cache**:\n\n<span class="k">```python</span>\n@lru_cache\ndef fib(n):\n    return n if n &lt; 2 else fib(n-1) + fib(n-2)\n<span class="k">```</span>\n\n| n  | fib(n) |\n|----|--------|\n| 10 | 55     |\n| 20 | 6765   |' },
-      json: { n: 'memoized-fibonacci.json', t: '{\n  <span class="k">"title"</span>: "Memoized Fibonacci",\n  <span class="k">"source"</span>: "chatgpt",\n  <span class="k">"messages"</span>: [\n    { <span class="k">"role"</span>: "user",\n      <span class="k">"content"</span>: "Write a memoized Fibonacci…" },\n    { <span class="k">"role"</span>: "assistant",\n      <span class="k">"content"</span>: "Here is a version using lru_cache…" }\n  ]\n}' },
-      obs: { n: 'Vault / AI chats / Memoized Fibonacci.md', t: '<span class="c">---\ntitle: Memoized Fibonacci\nsource: ChatGPT\n---</span>\n\n<span class="h">## You</span>\nWrite a memoized Fibonacci in Python…\n\n<span class="h">## ChatGPT</span>\n<span class="k">```python</span>\n@lru_cache\ndef fib(n): …\n<span class="k">```</span>\n\n<span class="c">Saved into your vault through Obsidian\'s\nobsidian:// link. Nothing passes through Ferry.</span>' },
-      notion: { n: 'Notion / your page / Memoized Fibonacci', t: '<span class="h">Heading</span>     You\n<span class="c">Text</span>        Write a memoized Fibonacci…\n<span class="h">Heading</span>     ChatGPT\n<span class="c">Text</span>        Here is a version using lru_cache\n<span class="k">Code</span>        python · @lru_cache def fib(n): …\n<span class="c">List</span>        kept as a list\n<span class="c">Quote</span>       kept as a quote\n\n<span class="c">Built with your own Notion key, called\nstraight from your browser. Pro.</span>' }
-    };
+    var pres = $$('.out__pre');
     var nm = $('#outName');
-    var show = function (k) { pre.innerHTML = outs[k].t; nm.textContent = outs[k].n; pre.classList.remove('swap'); void pre.offsetWidth; pre.classList.add('swap'); };
+    var show = function (k) { pres.forEach(function (p) { var on = p.getAttribute('data-fmt') === k; p.hidden = !on; if (on) { nm.textContent = p.getAttribute('data-name'); p.classList.remove('swap'); void p.offsetWidth; p.classList.add('swap'); } }); };
     $$('.tab').forEach(function (t) {
       t.addEventListener('click', function () { $$('.tab').forEach(function (x) { x.setAttribute('aria-selected', String(x === t)); }); show(t.getAttribute('data-fmt')); });
     });

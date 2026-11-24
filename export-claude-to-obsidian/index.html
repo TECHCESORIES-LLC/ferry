@@ -1,11 +1,12 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How to Export Claude Chats to Obsidian (2026) | Ferry</title>
+<meta name="description" content="Save Claude conversations as Obsidian notes: copy and paste, Claude&#x27;s data export with a script, or one click with Ferry. Front matter included." />
 <link rel="canonical" href="https://ferry.techcesories.com/export-claude-to-obsidian/" />
 <meta name="theme-color" content="#051a1f" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Ferry" />
 <meta property="og:title" content="How to Export Claude Chats to Obsidian (2026) | Ferry" />
-<meta property="og:description" content="Export any Claude.ai chat into your Obsidian vault as clean Markdown, code blocks, tables and artifacts intact. Free, local-first, one click." />
+<meta property="og:description" content="Save Claude conversations as Obsidian notes: copy and paste, Claude&#x27;s data export with a script, or one click with Ferry. Front matter included." />
 <meta property="og:url" content="https://ferry.techcesories.com/export-claude-to-obsidian/" />
 <meta property="og:image" content="https://ferry.techcesories.com/og.png" />
 <meta property="og:image:width" content="1200" />
@@ -13,10 +14,11 @@
 <meta property="og:locale" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="How to Export Claude Chats to Obsidian (2026) | Ferry" />
-<meta name="twitter:description" content="Export any Claude.ai chat into your Obsidian vault as clean Markdown, code blocks, tables and artifacts intact. Free, local-first, one click." />
+<meta name="twitter:description" content="Save Claude conversations as Obsidian notes: copy and paste, Claude&#x27;s data export with a script, or one click with Ferry. Front matter included." />
 <meta name="twitter:image" content="https://ferry.techcesories.com/og.png" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Export Claude Chats to Obsidian (2026) | Ferry","url":"https://ferry.techcesories.com/export-claude-to-obsidian/","image":"https://ferry.techcesories.com/og.png","author":{"@context":"https://schema.org","@type":"Organization","name":"Techcesories LLC","url":"https://ferry.techcesories.com/","email":"contactus@techcesories.com"},"publisher":{"@context":"https://schema.org","@type":"Organization","name":"Techcesories LLC","url":"https://ferry.techcesories.com/","email":"contactus@techcesories.com"},"mainEntityOfPage":"https://ferry.techcesories.com/export-claude-to-obsidian/","inLanguage":"en"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ferry","item":"https://ferry.techcesories.com/"},{"@type":"ListItem","position":2,"name":"Export Claude to Obsidian","item":"https://ferry.techcesories.com/export-claude-to-obsidian/"}]}</script><meta name="description" content="Export any Claude.ai chat into your Obsidian vault as clean Markdown, code blocks, tables and artifacts intact. Free, local-first, one click.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to export Claude chats to Obsidian", "description": "Save Claude conversations as Obsidian notes: copy and paste, Claude's data export with a script, or one click with Ferry. Front matter included.", "url": "https://ferry.techcesories.com/export-claude-to-obsidian/", "image": "https://ferry.techcesories.com/og.png", "dateModified": "2026-11-24", "author": {"@type": "Organization", "name": "Techcesories LLC", "url": "https://ferry.techcesories.com/"}, "publisher": {"@type": "Organization", "name": "Techcesories LLC", "url": "https://ferry.techcesories.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ferry", "item": "https://ferry.techcesories.com/"}, {"@type": "ListItem", "position": 2, "name": "Claude to Obsidian", "item": "https://ferry.techcesories.com/export-claude-to-obsidian/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does Claude have a built-in Obsidian export?", "acceptedAnswer": {"@type": "Answer", "text": "No. Claude can copy single replies as Markdown and export your whole account as JSON, but it has no direct export to Obsidian."}}, {"@type": "Question", "name": "Do I need an Obsidian plugin for Ferry?", "acceptedAnswer": {"@type": "Answer", "text": "No. Ferry uses the standard way Obsidian accepts new notes from other apps. You only set your vault name once."}}, {"@type": "Question", "name": "Do Claude artifacts come along?", "acceptedAnswer": {"@type": "Answer", "text": "Code blocks in the chat are kept as fenced code. With Pro, code can also be saved as separate files next to the Markdown."}}, {"@type": "Question", "name": "Can I move my whole Claude history into Obsidian?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Ferry Pro exports every Claude chat as Markdown files in one ZIP, which you can unzip straight into your vault folder."}}, {"@type": "Question", "name": "Is my conversation sent to Ferry?", "acceptedAnswer": {"@type": "Answer", "text": "No. Ferry converts the chat in your browser and passes it to Obsidian on your computer."}}]}</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,21 +44,94 @@
   </div>
 </header>
 <main id="top" class="article"><div class="wrap"><div class="sheet glass">
-<p class="crumb"><a href="/">Ferry</a> / Guides / Claude to Obsidian</p><h1>How to export Claude conversations to Obsidian</h1><p class="lead">Claude has no built-in export, and copy-pasting into Obsidian mangles your code blocks, tables, and artifacts. Ferry moves a whole conversation into your vault as clean Markdown in one click, and it runs entirely on your device.</p>
-<h2>The 3-step version</h2>
+<p class="crumb"><a href="/">Ferry</a> / Guides / Claude to Obsidian</p>
+<h1>How to export Claude chats to Obsidian</h1>
+<p class="updated">Updated November 24, 2026</p>
+
+<p class="lead">Obsidian is just a folder of Markdown files, which makes it a great home for Claude conversations you want to keep. The hard part is getting them out of Claude in a format Obsidian can use. Here are the manual routes and the one-click route, with what each one costs you in time.</p>
+
+<h2>Method 1: Copy and paste (fine for short chats)</h2>
 <ol>
-<li class="step"><b>Install Ferry</b> (free) and set your Obsidian vault name in its settings.</li>
-<li class="step"><b>Open the Claude chat</b> you want to keep and click the Ferry icon.</li>
-<li class="step"><b>Choose "Obsidian"</b>, Ferry hands the note straight to your vault via the <code>obsidian://</code> link, frontmatter and all.</li>
+<li class="step">Open the conversation on claude.ai.</li>
+<li class="step">Hover over a reply and click the copy icon. Claude copies that reply as Markdown.</li>
+<li class="step">Paste it into a new Obsidian note. Repeat for every message you want, and type your own prompts back in by hand.</li>
 </ol>
-<div class="box">Why not just copy-paste? Pasting from Claude into Obsidian flattens fenced code (you lose the language label and indentation), turns tables into runs of text, and drops artifacts entirely. Ferry rebuilds the Markdown from the page's real structure, so a <code>&#96;&#96;&#96;python</code> block stays a <code>&#96;&#96;&#96;python</code> block.</div>
-<h2>What comes across</h2>
-<p>The full back-and-forth as <code>## You</code> / <code>## Claude</code> sections, fenced code with the right language, GFM tables, LaTeX math, nested lists, and YAML frontmatter (title, source, URL) so the note slots into Dataview and graph view. With Pro, every code block in the chat is also saved as a real file (<code>.py</code>, <code>.js</code>…) alongside the note.</p>
-<p class="cta"><a class="btn btn--primary" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-install" target="_blank" rel="noopener">Add Ferry to Chrome, free</a></p>
+<p>This keeps the formatting of each reply, but you lose the back-and-forth structure unless you rebuild it, and it gets tedious past a few messages. Artifacts, such as a document or a piece of code Claude made in the side panel, have to be copied separately.</p>
+
+<h2>Method 2: Claude's data export</h2>
+<p>For a full archive, Claude has an official export:</p>
+<ol>
+<li class="step">On claude.ai or Claude Desktop, click your initials in the lower left.</li>
+<li class="step">Open <b>Settings</b>, then <b>Privacy</b>.</li>
+<li class="step">Click <b>Export data</b>. You can't start an export from the iOS or Android apps.</li>
+<li class="step">Download the file from the email. The link expires 24 hours after it is created and may only work once.</li>
+</ol>
+<p>The download is JSON. Each conversation holds a list of messages with a sender and text, which you would need to convert into one Markdown file per chat. A short Python script can do it:</p>
+<pre class="code" data-lang="python"><code>import json, pathlib, re
+
+convos = json.load(open(&quot;conversations.json&quot;))
+vault = pathlib.Path(&quot;~/Obsidian/AI chats&quot;).expanduser()
+vault.mkdir(parents=True, exist_ok=True)
+
+for c in convos:
+    name = re.sub(r&quot;[^\w -]&quot;, &quot;&quot;, c.get(&quot;name&quot;) or &quot;Untitled&quot;)[:80]
+    lines = [&quot;---&quot;, f&quot;title: {c.get(&#x27;name&#x27;)}&quot;, &quot;source: Claude&quot;,
+             f&quot;created: {c.get(&#x27;created_at&#x27;, &#x27;&#x27;)[:10]}&quot;, &quot;---&quot;, &quot;&quot;]
+    for m in c.get(&quot;chat_messages&quot;, []):
+        who = &quot;You&quot; if m.get(&quot;sender&quot;) == &quot;human&quot; else &quot;Claude&quot;
+        lines += [f&quot;## {who}&quot;, &quot;&quot;, m.get(&quot;text&quot;, &quot;&quot;), &quot;&quot;]
+    (vault / f&quot;{name}.md&quot;).write_text(&quot;\n&quot;.join(lines))</code></pre>
+<p>Two caveats. Field names in exports can change between versions, so check your file first. And the export doesn't include the original files you uploaded to Claude.</p>
+
+<h2>Method 3: Ferry, straight into your vault</h2>
+<ol>
+<li class="step"><b>Install Ferry</b> from the Chrome Web Store (Chrome, Edge, Brave or Arc).</li>
+<li class="step">In Ferry's settings, <b>enter the name of your Obsidian vault</b>. You only do this once.</li>
+<li class="step"><b>Open the Claude chat</b> and click the Ferry icon.</li>
+<li class="step">Choose <b>Obsidian</b>. Obsidian opens with a new note holding the whole conversation.</li>
+</ol>
+<p>The note gets front matter that Obsidian shows as Properties, so you can sort and search by source and title:</p>
+<pre class="code" data-lang="markdown"><code>---
+title: Postgres index tuning
+source: Claude
+---
+
+## You
+Why is this query doing a sequential scan?
+
+## Claude
+The planner skips the index because...</code></pre>
+<p>Nothing goes through a Ferry server on the way. Ferry builds the note in your browser and hands it to the Obsidian app on your computer.</p>
+
+<h2>Organizing Claude chats in Obsidian</h2>
+<ul>
+<li><b>One folder for AI chats.</b> Keep exports in something like <code>AI chats/Claude</code>, so they don't mix with notes you wrote yourself.</li>
+<li><b>Use the properties.</b> The <code>source</code> property lets a Dataview query or a Bases view list every Claude chat, or compare them with ChatGPT chats.</li>
+<li><b>Link from your own notes.</b> A link like <code>[[Postgres index tuning]]</code> from a project note turns a chat into reference material instead of a dead log.</li>
+<li><b>Trim before you file.</b> Delete the dead ends. A chat note is more useful when it holds only the answer you used.</li>
+</ul>
+
+<h2>What each method keeps</h2>
+<table>
+<tr><th></th><th>Copy and paste</th><th>Data export + script</th><th>Ferry</th></tr>
+<tr><td>Your prompts</td><td>Retyped by hand</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Code blocks with language</td><td>Yes, per reply</td><td>Depends on your script</td><td>Yes</td></tr>
+<tr><td>Tables</td><td>Yes, per reply</td><td>Depends on your script</td><td>Yes</td></tr>
+<tr><td>Front matter for Obsidian</td><td>No</td><td>If you add it</td><td>Yes</td></tr>
+<tr><td>Time per chat</td><td>Minutes</td><td>Setup once, then batch</td><td>One click</td></tr>
+</table>
+
+<h2>Troubleshooting</h2>
+<ul>
+<li><b>Obsidian opens, but in the wrong vault.</b> The vault name in Ferry's settings must match the vault's folder name exactly, including capital letters.</li>
+<li><b>The export email never arrives.</b> Check spam, and make sure you're signed in to the same account on claude.ai when you open the link.</li>
+<li><b>Odd characters in file names.</b> Obsidian doesn't allow some characters, such as <code>:</code> or <code>/</code>, in note names. Rename the note, or strip them in your script as the example above does.</li>
+</ul>
+
 <h2>Common questions</h2>
-<details><summary>Does my conversation get uploaded anywhere?</summary><p>No. Ferry runs in your browser and converts the chat locally. Your conversation never touches our servers, it goes straight from the page into your vault.</p></details>
-<details><summary>Does it work with the Claude desktop app?</summary><p>Ferry works on claude.ai in any Chromium browser. For the desktop app, open the same chat at claude.ai and export there.</p></details>
-<details><summary>Is it free?</summary><p>Exporting a single chat is free, always. Bulk export and saving artifacts as separate files are part of Ferry Pro, from $2.99 a month or $19.99 a year.</p></details>
+<details><summary>Does Claude have a built-in Obsidian export?</summary><p>No. Claude can copy single replies as Markdown and export your whole account as JSON, but it has no direct export to Obsidian.</p></details><details><summary>Do I need an Obsidian plugin for Ferry?</summary><p>No. Ferry uses the standard way Obsidian accepts new notes from other apps. You only set your vault name once.</p></details><details><summary>Do Claude artifacts come along?</summary><p>Code blocks in the chat are kept as fenced code. With Pro, code can also be saved as separate files next to the Markdown.</p></details><details><summary>Can I move my whole Claude history into Obsidian?</summary><p>Yes. Ferry Pro exports every Claude chat as Markdown files in one ZIP, which you can unzip straight into your vault folder.</p></details><details><summary>Is my conversation sent to Ferry?</summary><p>No. Ferry converts the chat in your browser and passes it to Obsidian on your computer.</p></details>
+<p class="cta"><a class="btn btn--beacon" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-install" target="_blank" rel="noopener">Add Ferry to Chrome, free</a></p>
+<p class="related">More guides: <a href="/export-chatgpt-to-markdown/">Export ChatGPT to Markdown</a> · <a href="/chatgpt-claude-to-notion/">Save ChatGPT and Claude chats to Notion</a> · <a href="/export-gemini-chats-to-markdown/">Export Gemini chats to Markdown</a></p>
 </div></div></main>
 <footer class="foot">
     <div class="wrap">
@@ -65,12 +140,12 @@
       <a class="btn btn--beacon" href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao" data-goatcounter-click="cta-close" target="_blank" rel="noopener">Add to Chrome, free</a>
     </div>
     <div class="foot__row">
-      <div><p class="foot__about">Ferry is a browser extension by Techcesories LLC, Georgia. Not affiliated with OpenAI or Anthropic.</p></div>
-      <div><h3>Guides</h3><ul><li><a href="/export-chatgpt-to-markdown/">Export ChatGPT to Markdown</a></li><li><a href="/export-claude-to-obsidian/">Export Claude to Obsidian</a></li><li><a href="/chatgpt-claude-to-notion/">Save chats to Notion</a></li></ul></div>
+      <div><p class="foot__about">Ferry is a browser extension by Techcesories LLC, Georgia. Not affiliated with OpenAI, Anthropic or Google.</p></div>
+      <div><h3>Guides</h3><ul><li><a href="/export-chatgpt-to-markdown/">Export ChatGPT to Markdown</a></li><li><a href="/export-claude-to-obsidian/">Export Claude to Obsidian</a></li><li><a href="/chatgpt-claude-to-notion/">Save chats to Notion</a></li><li><a href="/export-gemini-chats-to-markdown/">Export Gemini to Markdown</a></li></ul></div>
       <div><h3>Ferry</h3><ul><li><a href="/#crossing">How it works</a></li><li><a href="/#fares">Pricing</a></li><li><a href="https://chromewebstore.google.com/detail/jccpfaknkdpnekdhgchkildnmphgmgao/reviews" target="_blank" rel="noopener" data-goatcounter-click="cta-review">Leave a review</a></li></ul></div>
       <div><h3>Company</h3><ul><li><a href="mailto:contactus@techcesories.com">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/cookies/">Cookies</a></li></ul></div>
     </div>
-    <div class="foot__legal"><span>© 2026 Techcesories LLC · Photographs via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span><span>ChatGPT is a trademark of OpenAI. Claude is a trademark of Anthropic.</span></div>
+    <div class="foot__legal"><span>© 2026 Techcesories LLC · Photographs via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span><span>ChatGPT is a trademark of OpenAI. Claude is a trademark of Anthropic. Gemini is a trademark of Google LLC.</span></div>
   </div>
 </footer>
 <script src="/home.js" defer></script>
